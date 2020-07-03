@@ -19,8 +19,22 @@ exports.up = function(knex) {
       tbl.decimal("OBP")
       tbl.decimal("OPS")
   })
+  .createTable('players', tbl => {
+    tbl.increments()
+    tbl.string("name").notNullable()
+    // Foreign Key
+    tbl
+      .integer('stats_id')
+      .unsigned()
+      .references('id')
+      .inTable('stats')
+      .onDelete('CASCADE')
+      .onUpdate('CASCADE')
+  })
 };
 
 exports.down = function(knex) {
-  
+  return knex.schema
+    .dropTableIfExists('players')
+    .dropTableIfExists('stats')
 };
