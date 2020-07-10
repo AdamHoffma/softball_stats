@@ -27,4 +27,39 @@ router.get('/:id', (req, res) => {
     })
 })
 
+router.delete("/:id", (req, res) => {
+    const {id} = req.params
+    Stats.remove(id)
+    .then(removed => {
+        if(removed) {
+            return res.end("Deleted")
+        } else {
+            res.status(404).json({message: "Could not delete"})
+        }
+    })
+    .catch(error => {
+        res.status(500).json({message: "Could not delete, server error"})
+    })
+})
+
+router.put('/:id', (req, res) => {
+    const { id } = req.params
+    const change = req.body
+    Stats.findById(id)
+    .then(stat => {
+        if(stat) {
+            return Stats.edit(id, change)
+            .then(updatedStats => {
+                res.json(updatedStats)
+            })
+        } else {
+            res.status(404).json({message: "Could not find player with that id"})
+        }
+    })
+    .catch(error => {
+        console.log(error)
+        res.status(500).json({message: "Failed to update"})
+    })
+})
+
 module.exports = router

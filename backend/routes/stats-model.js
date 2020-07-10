@@ -25,10 +25,10 @@ function findById(id){
     return db('stats').where("id", id).first()
 }
 
-function edit(){
-
+function edit(id, change){
+    return db('stats').where({id}).update(change)
 }
 
-function remove(){
-    
+function remove(id){
+    return db('stats').where("id", id).del()
 }
