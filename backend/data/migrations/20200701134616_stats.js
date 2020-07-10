@@ -2,6 +2,7 @@
 exports.up = function(knex) {
   return knex.schema.createTable('stats', tbl => {
       tbl.increments()
+      tbl.string("Player")
       tbl.integer("PA")
       tbl.integer("AB")
       tbl.integer("BB")
@@ -18,23 +19,10 @@ exports.up = function(knex) {
       tbl.decimal("SLG")
       tbl.decimal("OBP")
       tbl.decimal("OPS")
-  })
-  .createTable('players', tbl => {
-    tbl.increments()
-    tbl.string("name").notNullable()
-    // Foreign Key
-    tbl
-      .integer('stats_id')
-      .unsigned()
-      .references('id')
-      .inTable('stats')
-      .onDelete('CASCADE')
-      .onUpdate('CASCADE')
-  })
+  })  
 };
 
 exports.down = function(knex) {
-  return knex.schema
-    .dropTableIfExists('players')
+  return knex.schema    
     .dropTableIfExists('stats')
 };

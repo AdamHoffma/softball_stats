@@ -2,6 +2,7 @@
 exports.seed = function(knex, promise) {
   return knex('stats').insert([
     {
+      Player: "Annika Spilde",
       PA: 8,
       AB: 5,
       BB: 3,
