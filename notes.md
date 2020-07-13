@@ -47,3 +47,19 @@ cookies vs local storage Study up on this
 Middleware 
 
 Knex is not a database!! Sqlite3 is the DB you use
+
+Cookies:  Information stored on the server side, much smaller and only stores strings
+Local Storage: Information is stored locally on the users computer. Much larger and stores objects but is less secure.
+
+Routes:
+The 3 components you will interact the most when working with React Router are:
+
+BrowserRouter, usually aliased as Router
+Link
+Route
+BrowserRouter wraps all your Route components.
+
+Link components are - as you can imagine - used to generate links to your routes
+
+Route components are responsible for showing - or hiding - the components they contain.
+Notice the exact attribute. Without this, path="/" would also match /about, since / is contained in the route.
