@@ -9,7 +9,7 @@ export const getPlayers = () => dispatch => {
     axios
     .get("http://localhost:5000/api/stats")
     .then(res => {
-        dispatch({type: GET_PLAYERS_SUCCESS, payload: res})
+        dispatch({type: GET_PLAYERS_SUCCESS, payload: res.data})
     })
     .catch(error => {
         dispatch({type: GET_PLAYERS_FAIL, payload: error})

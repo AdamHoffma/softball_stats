@@ -26,7 +26,9 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 error: "Failed to retrieve players"
-            }        
+            } 
+        default:
+            return state       
     }
 }
 

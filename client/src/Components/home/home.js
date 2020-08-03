@@ -7,7 +7,7 @@ const Test = props => {
         props.getPlayers()
     }, [])
 
-    console.log("prop", props)
+    console.log("players", props.players)
 
     return(
         <div></div>
