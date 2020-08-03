@@ -2,7 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import axios from "axios"
-import Test from "./Components/home.js"
+import Test from "./Components/home/home.js"
 import {Route} from "react-router-dom"
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
 
   return (
     <div className="App">
-      <Route exact path='/' component={Test} />
+      <Test/>
     </div>
   );
 }

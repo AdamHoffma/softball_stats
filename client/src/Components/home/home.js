@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react'
-import { getPlayers } from "../redux/actions.js"
+import { getPlayers } from "../../redux/actions.js"
 import { connect } from 'react-redux'
 
 const Test = props => {
     useEffect(() => {
-        props.getPlayers
+        props.getPlayers()
     }, [])
 
-    console.log(players)
+    console.log("prop", props)
 
     return(
         <div></div>
@@ -20,4 +20,9 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps,{getPlayers})(Test)
+export default connect(
+    mapStateToProps,
+    {
+        getPlayers
+    }
+    )(Test)
