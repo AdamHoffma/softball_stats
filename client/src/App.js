@@ -2,6 +2,8 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import axios from "axios"
+import Test from "./Components/home.js"
+import {Route} from "react-router-dom"
 
 function App() {
   axios.get("http://localhost:5000/api/stats")
@@ -11,7 +13,7 @@ function App() {
 
   return (
     <div className="App">
-      
+      <Route exact path='/' component={Test} />
     </div>
   );
 }
