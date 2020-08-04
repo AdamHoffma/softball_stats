@@ -4,6 +4,10 @@ import { connect } from 'react-redux'
 import banner from "../../assets/banner.png"
 import teamPhoto from "../../assets/16U.jpg"
 import "./home.css"
+import Nav from "../nav/nav.js"
+
+
+
 
 const Home = props => {
     useEffect(() => {
@@ -14,6 +18,7 @@ const Home = props => {
 
     return(
         <div className="welcome">
+            <Nav/>
             <h1 className="welcome-text">Welcome to the home of the Bandits!</h1>
             <img className="logo" src={banner} />
             <img className="team-photo" src={teamPhoto} />
