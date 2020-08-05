@@ -5,10 +5,11 @@ import Typography from '@material-ui/core/Typography';
 import "./nav.css"
 
 
+
 const useStyles = makeStyles((theme) => ({
     root: {
       '& > * + *': {
-        marginLeft: theme.spacing(2)                                        
+        marginLeft: theme.spacing(2)                                                
       },
     },
   }));
@@ -19,7 +20,7 @@ const classes = useStyles();
 const preventDefault = (event) => event.preventDefault();
     
     return (
-        <Typography className={classes.root}>
+        <Typography className={classes.root} >
             <Link className="link" href="#" onClick={preventDefault}>
                 Players
             </Link>

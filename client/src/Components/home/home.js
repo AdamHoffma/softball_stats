@@ -14,6 +14,7 @@ const Home = props => {
         props.getPlayers()
     }, [])
 
+
     console.log("players", props.players)
 
     return(
