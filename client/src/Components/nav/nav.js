@@ -2,13 +2,13 @@ import React from "react"
 import { makeStyles } from '@material-ui/core/styles';
 import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
+import "./nav.css"
 
 
 const useStyles = makeStyles((theme) => ({
     root: {
       '& > * + *': {
-        marginLeft: theme.spacing(2),
-        paddingLeft: 105                                 
+        marginLeft: theme.spacing(2)                                        
       },
     },
   }));
@@ -20,19 +20,19 @@ const preventDefault = (event) => event.preventDefault();
     
     return (
         <Typography className={classes.root}>
-            <Link href="#" onClick={preventDefault}>
+            <Link className="link" href="#" onClick={preventDefault}>
                 Players
             </Link>
-            <Link href="#" onClick={preventDefault}>
+            <Link className="link" href="#" onClick={preventDefault}>
                 Photos
             </Link>
-            <Link href="#" onClick={preventDefault}>
+            <Link className="link" href="#" onClick={preventDefault}>
                 Videos
             </Link>
-            <Link href="#" onClick={preventDefault}>
+            <Link className="link" href="#" onClick={preventDefault}>
                 Schedule
             </Link>
-            <Link href="#" onClick={preventDefault}>
+            <Link className="link" href="#" onClick={preventDefault}>
                 Contact
             </Link>                
         </Typography>
