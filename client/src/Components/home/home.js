@@ -17,11 +17,13 @@ const Home = props => {
     console.log("players", props.players)
 
     return(
-        <div className="welcome">
+        <div className="home">
             <Nav/>
-            <h1 className="welcome-text">Welcome to the home of the Bandits!</h1>
-            <img className="logo" src={banner} />
-            <img className="team-photo" src={teamPhoto} />
+            <div className="welcome">           
+                <h1 className="welcome-text">Welcome to the home of the Bandits!</h1>
+                <img className="logo" src={banner} />
+                <img className="team-photo" src={teamPhoto} />
+            </div>
         </div>
     )
 }

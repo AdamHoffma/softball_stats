@@ -3,10 +3,12 @@ import { makeStyles } from '@material-ui/core/styles';
 import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
 
+
 const useStyles = makeStyles((theme) => ({
     root: {
       '& > * + *': {
         marginLeft: theme.spacing(2),
+        paddingLeft: 105                                 
       },
     },
   }));
@@ -19,14 +21,20 @@ const preventDefault = (event) => event.preventDefault();
     return (
         <Typography className={classes.root}>
             <Link href="#" onClick={preventDefault}>
-                Link
+                Players
             </Link>
-            <Link href="#" onClick={preventDefault} color="inherit">
-                {'color="inherit"'}
+            <Link href="#" onClick={preventDefault}>
+                Photos
             </Link>
-            <Link href="#" onClick={preventDefault} variant="body2">
-            {'variant="body2"'}
+            <Link href="#" onClick={preventDefault}>
+                Videos
             </Link>
+            <Link href="#" onClick={preventDefault}>
+                Schedule
+            </Link>
+            <Link href="#" onClick={preventDefault}>
+                Contact
+            </Link>                
         </Typography>
     )
 }
