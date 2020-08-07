@@ -1,6 +1,7 @@
 import React from "react"
 import { makeStyles } from '@material-ui/core/styles';
 import Link from '@material-ui/core/Link';
+//import { Link } from "react-router-dom";
 import Typography from '@material-ui/core/Typography';
 import "./nav.css"
 
@@ -21,12 +22,12 @@ const preventDefault = (event) => event.preventDefault();
     
     return (
         <Typography className={classes.root} >
-            <Link className="link" href="#" onClick={preventDefault}>
+            <Link className="link" href="/players" >
                 Players
             </Link>
-            <Link className="link" href="#" onClick={preventDefault}>
+            <a><Link className="link" href="#" onClick={preventDefault}>
                 Photos
-            </Link>
+            </Link></a>
             <Link className="link" href="#" onClick={preventDefault}>
                 Videos
             </Link>

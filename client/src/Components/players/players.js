@@ -9,8 +9,8 @@ const Players = props => {
     }, [])
 
     return(
-        <div>
-
+        <div className="player-body">
+            <h1>Hi</h1>
         </div>
     )
 }
