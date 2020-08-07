@@ -7,10 +7,15 @@ const Players = props => {
     useEffect(() => {
         props.getPlayers()
     }, [])
+    console.log("players", props.players)
 
     return(
         <div className="player-body">
-            <h1>Hi</h1>
+            <li>
+                {props.players.map(p => {
+                    return <ul>{p.Player}</ul>
+                })}
+            </li>
         </div>
     )
 }
