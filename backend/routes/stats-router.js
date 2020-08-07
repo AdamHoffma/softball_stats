@@ -62,4 +62,15 @@ router.put('/:id', (req, res) => {
     })
 })
 
+router.post('/', (req, res) => {
+    const playerData = req.body
+    Stats.add(playerData)
+        .then(update => {
+            res.status(200).json(update)
+        })
+        .catch(error => {
+            res.status(500).json({message: "Failed to Post"})
+        })
+})
+
 module.exports = router

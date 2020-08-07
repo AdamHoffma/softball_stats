@@ -5,7 +5,7 @@ module.exports = {
     find,
     findById,
     edit,
-    remove
+    remove    
 }
 
 function add(stat) {
@@ -32,3 +32,4 @@ function edit(id, change){
 function remove(id){
     return db('stats').where("id", id).del()
 }
+
