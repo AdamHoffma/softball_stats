@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import { getPlayers, postPlayers } from '../../redux/actions.js'
+import { getPlayers, postPlayers, deletePlayers } from '../../redux/actions.js'
 import { connect } from "react-redux";
 
 const PlayerForm = props => {
@@ -37,6 +37,12 @@ const PlayerForm = props => {
     const submit = e => {
         e.preventDefault()
         props.postPlayers(values)
+    }   
+
+    const removePlayer = p => {
+        props.deletePlayers(p.id)
+        const newArray = props.players.filter(person => person.id != props.players.id)
+        return newArray
     }
 
     return(
@@ -45,9 +51,16 @@ const PlayerForm = props => {
                 onSubmit={submit}
             >
                 <input
+                    placeholder="Player Name"
                     label="Player"
                     value={values.Player}
                     onChange={handleChange("Player")}                    
+                />
+                {/* <input
+                    placeholder="Plate Appearances"
+                    label="PA"
+                    value={values.PA}
+                    onChange={handleChange("PA")}                    
                 />
                 <input
                     label="Player"
@@ -123,15 +136,13 @@ const PlayerForm = props => {
                     label="Player"
                     value={values.Player}
                     onChange={handleChange("Player")}                    
-                />
-                <input
-                    label="Player"
-                    value={values.Player}
-                    onChange={handleChange("Player")}                    
-                />
-                
-                <button onClick={submit}/>                
-            </form>
+                /> */}
+
+                <button onClick={(e) => submit(e)}/>         
+            </form>            
+                {props.players.map(p => {
+                    return <button onClick={() => removePlayer(p)}>{p.Player}</button>
+                })}
         </div>
     )
 }
@@ -142,4 +153,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, {getPlayers, postPlayers})(PlayerForm)
+export default connect(mapStateToProps, {getPlayers, postPlayers, deletePlayers})(PlayerForm)

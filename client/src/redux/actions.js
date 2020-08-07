@@ -21,7 +21,7 @@ export const POST_PLAYERS_SUCCESS = "POST_PLAYERS_SUCCESS"
 export const POST_PLAYERS_FAILURE = "POST_PLAYERS_FAILURE"
 
 export const postPlayers = player => dispatch => {
-    dispatch({ type: POST_PLAYERS_START})
+    dispatch({ type: POST_PLAYERS_START})    
     axios
     .post("http://localhost:5000/api/stats", player)
     .then(res => {
@@ -30,4 +30,23 @@ export const postPlayers = player => dispatch => {
     .catch(error => {
         dispatch({type: POST_PLAYERS_FAILURE, payload: error})
     })
+  }
+
+
+export const DELETE_PLAYERS_START = "DELETE_PLAYERS_START"
+export const DELETE_PLAYERS_SUCCESS = "DELETE_PLAYERS_SUCCESS"
+export const DELETE_PLAYERS_FAILURE = "DELETE_PLAYERS_FAILURE"
+
+export const deletePlayers = player_id => dispatch => {
+    dispatch({type: DELETE_PLAYERS_START})
+    var confirmation = window.confirm("Are you sure?")
+    if (confirmation === true) {
+    axios
+        .delete(`http://localhost:5000/api/stats/${player_id}`)
+        .then(res => {
+            window.location.reload()
+        })
+    } else {
+        window.location.reload()
+    }
 }

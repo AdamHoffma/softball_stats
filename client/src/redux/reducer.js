@@ -4,7 +4,8 @@ import {
     GET_PLAYERS_FAIL,
     POST_PLAYERS_START,
     POST_PLAYERS_SUCCESS,
-    POST_PLAYERS_FAILURE
+    POST_PLAYERS_FAILURE,
+    DELETE_PLAYERS_START
 } from "./actions.js"
 
 const initialState = {
@@ -43,6 +44,10 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 error: "Failed to post player stats"
+            }
+        case DELETE_PLAYERS_START:
+            return {
+                ...state
             }
         default:
             return state       
