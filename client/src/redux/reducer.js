@@ -5,7 +5,8 @@ import {
     POST_PLAYERS_START,
     POST_PLAYERS_SUCCESS,
     POST_PLAYERS_FAILURE,
-    DELETE_PLAYERS_START
+    DELETE_PLAYERS_START,
+    EDIT_PLAYER
 } from "./actions.js"
 
 const initialState = {
@@ -46,6 +47,10 @@ const reducer = (state = initialState, action) => {
                 error: "Failed to post player stats"
             }
         case DELETE_PLAYERS_START:
+            return {
+                ...state
+            }
+        case EDIT_PLAYER:
             return {
                 ...state
             }

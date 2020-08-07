@@ -50,3 +50,14 @@ export const deletePlayers = player_id => dispatch => {
         window.location.reload()
     }
 }
+
+export const EDIT_PLAYER = "EDIT_PLAYER"
+
+export const editPlayer = player_id => dispatch => {
+    dispatch({type: EDIT_PLAYER})
+    axios
+        .put(`http://localhost:5000/api/stats/${player_id}`)
+        .then(res => {
+            window.loctation.reload()
+        })
+}
