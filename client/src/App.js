@@ -4,6 +4,7 @@ import './App.css';
 import axios from "axios"
 import Home from "./Components/home/home.js"
 import {Route} from "react-router-dom"
+import Players from "./Components/players/players.js"
 
 function App() {
   axios.get("http://localhost:5000/api/stats")
@@ -13,7 +14,8 @@ function App() {
 
   return (
     <div className="App">
-      <Route exact path="/" component={Home}/>
+      <Route exact path="/" component={Home} />
+      <Route path ="/players" component={Players} />
     </div>
   );
 }
