@@ -15,3 +15,19 @@ export const getPlayers = () => dispatch => {
         dispatch({type: GET_PLAYERS_FAIL, payload: error})
     })
 }
+
+export const POST_PLAYERS_START = "POST_PLAYERS_START"
+export const POST_PLAYERS_SUCCESS = "POST_PLAYERS_SUCCESS"
+export const POST_PLAYERS_FAILURE = "POST_PLAYERS_FAILURE"
+
+export const postPlayers = player => dispatch => {
+    dispatch({ type: POST_PLAYERS_START})
+    axios
+    .post("http://localhost:5000/api/stats", player)
+    .then(res => {
+        dispatch({type: POST_PLAYERS_SUCCESS, payload: res.data})
+    })
+    .catch(error => {
+        dispatch({type: POST_PLAYERS_FAILURE, payload: error})
+    })
+}

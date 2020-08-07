@@ -1,7 +1,10 @@
 import {
     GET_PLAYERS,
     GET_PLAYERS_SUCCESS,
-    GET_PLAYERS_FAIL
+    GET_PLAYERS_FAIL,
+    POST_PLAYERS_START,
+    POST_PLAYERS_SUCCESS,
+    POST_PLAYERS_FAILURE
 } from "./actions.js"
 
 const initialState = {
@@ -26,7 +29,21 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 error: "Failed to retrieve players"
+            }
+        case POST_PLAYERS_START:
+            return {
+                ...state
             } 
+        case POST_PLAYERS_SUCCESS:
+            return {
+                ...state,
+                players: action.payload
+            }
+        case POST_PLAYERS_FAILURE:
+            return {
+                ...state,
+                error: "Failed to post player stats"
+            }
         default:
             return state       
     }

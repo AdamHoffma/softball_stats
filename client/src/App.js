@@ -5,6 +5,8 @@ import axios from "axios"
 import Home from "./Components/home/home.js"
 import {Route} from "react-router-dom"
 import Players from "./Components/players/players.js"
+import PlayerForm from "./Components/playerForm/playerForm.js"
+import playerForm from './Components/playerForm/playerForm.js';
 
 function App() {
   axios.get("http://localhost:5000/api/stats")
@@ -16,6 +18,7 @@ function App() {
     <div className="App">
       <Route exact path="/" component={Home} />
       <Route path ="/players" component={Players} />
+      <Route path="/playerform" component={playerForm} />
     </div>
   );
 }
