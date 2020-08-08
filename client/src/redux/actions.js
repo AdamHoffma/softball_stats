@@ -42,6 +42,8 @@ export const deletePlayers = player_id => dispatch => {
     dispatch({type: DELETE_PLAYERS_START})
     var confirmation = window.confirm("Are you sure?")
     if (confirmation === true) {
+    var confirmation2 = window.confirm("This is permanent")}
+    if (confirmation2 === true) {
     axios
         .delete(`http://localhost:5000/api/stats/${player_id}`)
         .then(res => {

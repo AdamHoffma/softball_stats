@@ -25,8 +25,8 @@ const PlayerForm = props => {
         OPS: null
     })
 
-    const handleChange = stats => event => {
-        setValues({...values, [stats]: event.target.value})
+    function handleChange(event) {        
+        setValues({[event.target.name]: event.target.value})
     }
 
     useEffect(() => {
@@ -62,102 +62,109 @@ const PlayerForm = props => {
             <form>
                 <input
                     placeholder="Player Name"
-                    label="Player"
+                    name="Player"
                     value={values.Player}
-                    onChange={handleChange("Player")}                    
+                    onChange={handleChange}                    
                 />                
-                <button onClick={(e) => submit(e)}/>         
+                <button onClick={(e) => submit(e)}>Add Player</button>         
             </form>
-            <div className="player-delete">            
+            <div className="player-delete">
+                <p style={{color: "white"}}>Delete Player</p>            
                 {props.players.map(p => {
                     return <button onClick={() => removePlayer(p)}>{p.Player}</button>
                 })}
             </div>
             {props.players.map(p => {
                 return <div> 
-                            <form>                          
-                                <input
-                                    style={{color: "red"}}                                            
-                                    value={p.id}
-                                />
-                                <input
+                            <form>                                
+                                <input 
+                                    name="Player"
+                                    type="text"
                                     style={{color: "red"}}
-                                    placeholder={p.Player}
+                                    placeholder={values.Player}
                                     label="Player"                            
-                                    value={values.Player}
-                                    onChange={handleChange("Player")}                                    
+                                    value={p.Player}
+                                    onChange={handleChange}                                    
                                 />
+                                <label style={{color: "red"}}>Plate Appearances: {p.PA}
                                 <input
+                                    contentEditable="true"
+                                    name="PA"                                    
                                     placeholder="Plate Appearances"
                                     label="PA"
                                     value={values.PA}
-                                    onChange={handleChange("PA")}
+                                    onChange={handleChange}
                                 />
+                                </label>
+                                <label style={{color: "red"}}>AT Bats: {p.AB}
                                 <input
                                     placeholder="At Bats"
                                     label="AB"
                                     value={values.AB}
-                                    onChange={handleChange("AB")}
+                                    onChange={handleChange}
                                 />
+                                </label>
+                                <label style={{color: "red"}}>Walks: {p.Walks}
                                 <input
                                     placeholder="Walks"
                                     label="BB"
                                     value={values.BB}
-                                    onChange={handleChange("BB")}
+                                    onChange={handleChange}
                                 />
+                                </label>
                                 <input
                                     placeholder="Strikeouts"
                                     label="K"
                                     value={values.K}
-                                    onChange={handleChange("K")}
+                                    onChange={handleChange}
                                 />
                                 <input
                                     placeholder="Strikeouts Looking"
                                     label="KL"
                                     value={values.KL}
-                                    onChange={handleChange("KL")}
+                                    onChange={handleChange}
                                 />
                                 <input
                                     placeholder="Hits"
                                     label="Hits"
                                     value={values.Hits}
-                                    onChange={handleChange("Hits")}
+                                    onChange={handleChange}
                                 />
                                 <input
                                     placeholder="Doubles"
                                     label="Double"
                                     value={values.Double}
-                                    onChange={handleChange("Double")}
+                                    onChange={handleChange}
                                 />
                                 <input
                                     placeholder="Triples"
                                     label="Triple"
                                     value={values.Triple}
-                                    onChange={handleChange("Triple")}
+                                    onChange={handleChange}
                                 />
                                 <input
                                     placeholder="Homeruns"
                                     label="HR"
                                     value={values.HR}
-                                    onChange={handleChange("HR")}
+                                    onChange={handleChange}
                                 />
                                 <input
                                     placeholder="RBI"
                                     label="RBI"
                                     value={values.RBI}
-                                    onChange={handleChange("RBI")}
+                                    onChange={handleChange}
                                 />
                                 <input
                                     placeholder="R"
                                     label="R"
                                     value={values.R}
-                                    onChange={handleChange("R")}
+                                    onChange={handleChange}
                                 />
                                 <input
                                     placeholder="Stolen Base"
                                     label="SB"
                                     value={values.SB}
-                                    onChange={handleChange("SB")}
+                                    onChange={handleChange}
                                 />                                                              
                                 <button onClick={() => edit(p.id, values)}>Submit new stats</button>                      
                             </form>      
