@@ -35,9 +35,9 @@ const PlayerForm = props => {
 
     console.log("players", props.players)
 
-    const submit = e => {
-        e.preventDefault()
-        props.postPlayers(values)
+    const submit = e => {   
+        e.preventDefault()     
+        props.postPlayers(values)        
     }   
 
     const removePlayer = p => {
@@ -46,22 +46,20 @@ const PlayerForm = props => {
         return newArray
     }
 
-    const edit = (p, values) => {        
+    const edit = (p, stats) => {        
         console.log("p", p)
-        props.editPlayer(p, values)
+        props.editPlayer(p, stats)
     }
     console.log("values", values)
 
     const showForm = () => {
         var show = document.getElementById("hidden")
-        show.classList.toggle("visible")
+        show.classList.toggle("visible")        
     }
 
     return(
         <div>
-            <form
-                onSubmit={submit}
-            >
+            <form>
                 <input
                     placeholder="Player Name"
                     label="Player"
@@ -79,7 +77,8 @@ const PlayerForm = props => {
                             <button onClick={showForm}>{p.Player}</button>
                             <form 
                                 className="hidden"
-                                id="hidden"                                
+                                id="hidden" 
+                                type="submit"                               
                             >
                                 <input
                                     value={p.id}
@@ -181,7 +180,7 @@ const PlayerForm = props => {
                                     value={values.OPS}
                                     onChange={handleChange("OPS")}
                                 />
-                                <button onClick={() => edit(p, values)}>Submit new stats</button>
+                                <button onClick={() => edit(p.id, values)}>Submit new stats</button>
                             </form>
                         </div>
             })}            

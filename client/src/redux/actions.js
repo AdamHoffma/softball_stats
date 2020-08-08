@@ -26,6 +26,7 @@ export const postPlayers = player => dispatch => {
     .post("http://localhost:5000/api/stats", player)
     .then(res => {
         dispatch({type: POST_PLAYERS_SUCCESS, payload: res.data})
+        window.location.reload()
     })
     .catch(error => {
         dispatch({type: POST_PLAYERS_FAILURE, payload: error})
@@ -59,5 +60,8 @@ export const editPlayer = (player_id, values) => dispatch => {
         .put(`http://localhost:5000/api/stats/${player_id}`, values)
         .then(res => {
             console.log('res', res)            
+        })
+        .catch(error => {
+            console.log("error", error)
         })
 }
