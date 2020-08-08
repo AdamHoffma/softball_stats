@@ -53,11 +53,11 @@ export const deletePlayers = player_id => dispatch => {
 
 export const EDIT_PLAYER = "EDIT_PLAYER"
 
-export const editPlayer = player_id => dispatch => {
+export const editPlayer = (player_id, values) => dispatch => {
     dispatch({type: EDIT_PLAYER})
     axios
-        .put(`http://localhost:5000/api/stats/${player_id}`)
+        .put(`http://localhost:5000/api/stats/${player_id}`, values)
         .then(res => {
-            window.loctation.reload()
+            console.log('res', res)            
         })
 }

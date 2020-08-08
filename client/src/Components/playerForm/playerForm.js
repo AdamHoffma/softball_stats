@@ -46,9 +46,11 @@ const PlayerForm = props => {
         return newArray
     }
 
-    const edit = p => {        
-        props.editPlayer(p.id, values)
+    const edit = (p, values) => {        
+        console.log("p", p)
+        props.editPlayer(p, values)
     }
+    console.log("values", values)
 
     const showForm = () => {
         var show = document.getElementById("hidden")
@@ -72,17 +74,16 @@ const PlayerForm = props => {
                     return <button onClick={() => removePlayer(p)}>{p.Player}</button>
                 })}
             {props.players.map(p => {
-                return <div>
+                return <div> 
                             <p style={{color: "white"}}>Click name to edit stats</p>
                             <button onClick={showForm}>{p.Player}</button>
                             <form 
                                 className="hidden"
-                                id="hidden"
-                                onClick={edit(p)}
+                                id="hidden"                                
                             >
                                 <input
                                     value={p.id}
-                                    onChange={handleChange()}
+                                    onChange={handleChange(p.id)}
                                 ></input>
                                 <input
                                     placeholder="Plate Appearances"
@@ -180,7 +181,7 @@ const PlayerForm = props => {
                                     value={values.OPS}
                                     onChange={handleChange("OPS")}
                                 />
-                                <button onClick={() => edit(p)}>Submit new stats</button>
+                                <button onClick={() => edit(p, values)}>Submit new stats</button>
                             </form>
                         </div>
             })}            

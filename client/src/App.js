@@ -8,11 +8,7 @@ import Players from "./Components/players/players.js"
 import PlayerForm from "./Components/playerForm/playerForm.js"
 import playerForm from './Components/playerForm/playerForm.js';
 
-function App() {
-  axios.get("http://localhost:5000/api/stats")
-  .then(res => {
-    console.log(res.data[0])
-  })
+function App() {  
 
   return (
     <div className="App">
