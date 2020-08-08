@@ -2,7 +2,7 @@
 exports.up = function(knex) {
   return knex.schema.createTable('stats', tbl => {
       tbl.increments()
-      tbl.string("Player")
+      tbl.string("Player").notNullable()
       tbl.integer("PA")
       tbl.integer("AB")
       tbl.integer("BB")
