@@ -75,121 +75,98 @@ const PlayerForm = props => {
             </div>
             {props.players.map(p => {
                 return <div> 
-                            <p style={{color: "white"}}>Click name to edit stats</p>
-                            <button key={p} onClick={() => showForm(p)}>{p.Player}</button>                                                      
+                            <form>                          
+                                <input
+                                    style={{color: "red"}}                                            
+                                    value={p.id}
+                                />
+                                <input
+                                    style={{color: "red"}}
+                                    placeholder={p.Player}
+                                    label="Player"                            
+                                    value={values.Player}
+                                    onChange={handleChange("Player")}                                    
+                                />
+                                <input
+                                    placeholder="Plate Appearances"
+                                    label="PA"
+                                    value={values.PA}
+                                    onChange={handleChange("PA")}
+                                />
+                                <input
+                                    placeholder="At Bats"
+                                    label="AB"
+                                    value={values.AB}
+                                    onChange={handleChange("AB")}
+                                />
+                                <input
+                                    placeholder="Walks"
+                                    label="BB"
+                                    value={values.BB}
+                                    onChange={handleChange("BB")}
+                                />
+                                <input
+                                    placeholder="Strikeouts"
+                                    label="K"
+                                    value={values.K}
+                                    onChange={handleChange("K")}
+                                />
+                                <input
+                                    placeholder="Strikeouts Looking"
+                                    label="KL"
+                                    value={values.KL}
+                                    onChange={handleChange("KL")}
+                                />
+                                <input
+                                    placeholder="Hits"
+                                    label="Hits"
+                                    value={values.Hits}
+                                    onChange={handleChange("Hits")}
+                                />
+                                <input
+                                    placeholder="Doubles"
+                                    label="Double"
+                                    value={values.Double}
+                                    onChange={handleChange("Double")}
+                                />
+                                <input
+                                    placeholder="Triples"
+                                    label="Triple"
+                                    value={values.Triple}
+                                    onChange={handleChange("Triple")}
+                                />
+                                <input
+                                    placeholder="Homeruns"
+                                    label="HR"
+                                    value={values.HR}
+                                    onChange={handleChange("HR")}
+                                />
+                                <input
+                                    placeholder="RBI"
+                                    label="RBI"
+                                    value={values.RBI}
+                                    onChange={handleChange("RBI")}
+                                />
+                                <input
+                                    placeholder="R"
+                                    label="R"
+                                    value={values.R}
+                                    onChange={handleChange("R")}
+                                />
+                                <input
+                                    placeholder="Stolen Base"
+                                    label="SB"
+                                    value={values.SB}
+                                    onChange={handleChange("SB")}
+                                />                                                              
+                                <button onClick={() => edit(p.id, values)}>Submit new stats</button>                      
+                            </form>      
+                                                                                                             
                         </div>
             })}
-            {props.players.map(p => {        
-            return <div>
-                        <form 
-                        className="hidden"
-                        id="hidden" 
-                        type="submit"                                            
-                        >
-                        <input                            
-                            value={p.id}
-                            onChange={handleChange(p.Player)}
-                        />
-                        <input
-                            placeholder="Plate Appearances"
-                            label="PA"
-                            value={values.PA}
-                            onChange={handleChange("PA")}
-                        />
-                        <input
-                            placeholder="At Bats"
-                            label="AB"
-                            value={values.AB}
-                            onChange={handleChange("AB")}
-                        />
-                        <input
-                            placeholder="Walks"
-                            label="BB"
-                            value={values.BB}
-                            onChange={handleChange("BB")}
-                        />
-                        <input
-                            placeholder="Strikeouts"
-                            label="K"
-                            value={values.K}
-                            onChange={handleChange("K")}
-                        />
-                        <input
-                            placeholder="Strikeouts Looking"
-                            label="KL"
-                            value={values.KL}
-                            onChange={handleChange("KL")}
-                        />
-                        <input
-                            placeholder="Hits"
-                            label="Hits"
-                            value={values.Hits}
-                            onChange={handleChange("Hits")}
-                        />
-                        <input
-                            placeholder="Doubles"
-                            label="Double"
-                            value={values.Double}
-                            onChange={handleChange("Double")}
-                        />
-                        <input
-                            placeholder="Triples"
-                            label="Triple"
-                            value={values.Triple}
-                            onChange={handleChange("Triple")}
-                        />
-                        <input
-                            placeholder="Homeruns"
-                            label="HR"
-                            value={values.HR}
-                            onChange={handleChange("HR")}
-                        />
-                        <input
-                            placeholder="RBI"
-                            label="RBI"
-                            value={values.RBI}
-                            onChange={handleChange("RBI")}
-                        />
-                        <input
-                            placeholder="R"
-                            label="R"
-                            value={values.R}
-                            onChange={handleChange("R")}
-                        />
-                        <input
-                            placeholder="Stolen Base"
-                            label="SB"
-                            value={values.SB}
-                            onChange={handleChange("SB")}
-                        />
-                        <input
-                            placeholder="Batting Average"
-                            label="BA"
-                            value={values.BA}
-                            onChange={handleChange("BA")}
-                        />
-                        <input
-                            placeholder="Slugging"
-                            label="SLG"
-                            value={values.SLG}
-                            onChange={handleChange("SLG")}
-                        />
-                        <input
-                            placeholder="OBP"
-                            label="OBP"
-                            value={values.OBP}
-                            onChange={handleChange("OBP")}
-                        />
-                        <input
-                            placeholder="OPS"
-                            label="OPS"
-                            value={values.OPS}
-                            onChange={handleChange("OPS")}
-                        />                                
-                        <button onClick={() => edit(p.id, values)}>Submit new stats</button>                      
-                    </form> 
-            </div> 
-            })}                                
+            
+                      
+                                           
         </div>
     )
 }
