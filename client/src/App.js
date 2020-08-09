@@ -11,7 +11,7 @@ import playerForm from './Components/playerForm/playerForm.js';
 function App() {  
 
   return (
-    <div className="App">
+    <div>
       <Route exact path="/" component={Home} />
       <Route path ="/players" component={Players} />
       <Route path="/playerform" component={playerForm} />

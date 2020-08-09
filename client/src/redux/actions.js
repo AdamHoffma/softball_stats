@@ -25,8 +25,8 @@ export const postPlayers = player => dispatch => {
     axios
     .post("http://localhost:5000/api/stats", player)
     .then(res => {
-        dispatch({type: POST_PLAYERS_SUCCESS, payload: res.data})
-        window.location.reload()
+        dispatch({type: POST_PLAYERS_SUCCESS, payload: res.data})  
+        window.location.reload()      
     })
     .catch(error => {
         dispatch({type: POST_PLAYERS_FAILURE, payload: error})
