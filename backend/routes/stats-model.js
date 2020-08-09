@@ -12,8 +12,7 @@ function add(stat) {
     return db('stats')
     .insert(stat, 'id')
     .then(ids => {
-        const [id] = ids
-        return findById(id)
+        const [id] = ids        
     })
 }
 
