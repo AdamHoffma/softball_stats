@@ -6,6 +6,7 @@ import Home from "./Components/home/home.js"
 import {Route} from "react-router-dom"
 import Players from "./Components/players/players.js"
 import playerForm from "./Components/playerForm/addPlayerForm.js"
+import editStats from "./Components/playerForm/editStats.js"
 
 
 function App() {  
@@ -15,6 +16,7 @@ function App() {
       <Route exact path="/" component={Home} />
       <Route path ="/players" component={Players} />
       <Route path="/playerform" component={playerForm} />
+      <Route path="/editstats" component={editStats} />
     </div>
   );
 }

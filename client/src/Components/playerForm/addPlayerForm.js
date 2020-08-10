@@ -13,7 +13,7 @@ const PlayerForm = props => {
     }, []) 
 
     let players = props.players
-        const returnedPlayers = Array.from(players)
+    const returnedPlayers = Array.from(players)
     
     console.log("returned", returnedPlayers)
     console.log("players", players)
@@ -52,7 +52,8 @@ const PlayerForm = props => {
                             <p className="delete" style={{color: "white"}}>Click A Name To Remove From Roster</p>            
                             <div className="buttonbody">
                             {returnedPlayers.map(p => {                                
-                                return      <button 
+                                return      <button
+                                                key={p.id} 
                                                 className="removebutton" 
                                                 onClick={() => removePlayer(p)}
                                             >
