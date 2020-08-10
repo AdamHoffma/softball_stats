@@ -36,22 +36,32 @@ const PlayerForm = props => {
 
     return(
         <div className="addplayerbody">
-            <form className="addplayerform">
-                <input
-                    className="addplayer-input"
-                    placeholder="Player Name"
-                    name="Player"
-                    value={players.Players}
-                    onChange={handleChange}                    
-                />                
-                <button className="addplayer-button" onClick={(e) => submit(e)}>Add Player</button>         
-            </form>
-            <div className="player-delete">
-                <p className="delete" style={{color: "white"}}>Delete Player</p>            
-                {returnedPlayers.map(p => {
-                    return <button onClick={() => removePlayer(p)}>{p.Player}</button>
-                })}
-            </div>                 
+                <div className="addplayerinnerbody">
+                    <h1 className="addplayerheading">Add Player To The Roster</h1>
+                        <form className="addplayerform">
+                            <input
+                                className="addplayer-input"
+                                placeholder="Player Name"
+                                name="Player"
+                                value={players.Players}
+                                onChange={handleChange}                    
+                            />                
+                            <button className="addplayer-button" onClick={(e) => submit(e)}>Add Player</button>         
+                        </form>
+                        <div className="player-delete">
+                            <p className="delete" style={{color: "white"}}>Click A Name To Remove From Roster</p>            
+                            <div className="buttonbody">
+                            {returnedPlayers.map(p => {                                
+                                return      <button 
+                                                className="removebutton" 
+                                                onClick={() => removePlayer(p)}
+                                            >
+                                                {p.Player}
+                                            </button>                                        
+                            })}
+                            </div>
+                        </div>    
+            </div>             
         </div>
     )
 }
