@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import { getPlayers, postPlayers, deletePlayers, editPlayer } from '../../redux/actions.js'
 import { connect } from "react-redux";
-import "./playerForm.css"
+import "./addPlayerForm.css"
 
 const PlayerForm = props => {
     const [values, setValues] = useState({

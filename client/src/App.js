@@ -5,8 +5,8 @@ import axios from "axios"
 import Home from "./Components/home/home.js"
 import {Route} from "react-router-dom"
 import Players from "./Components/players/players.js"
-import PlayerForm from "./Components/playerForm/playerForm.js"
-import playerForm from './Components/playerForm/playerForm.js';
+import playerForm from "./Components/playerForm/addPlayerForm.js"
+
 
 function App() {  
 
