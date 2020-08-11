@@ -15,7 +15,7 @@ const EditStats = props => {
 
     useEffect(() => {
         props.getPlayers()       
-    }, [])        
+    }, [stat])        
 
     const stats = props.stats 
     
