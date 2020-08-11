@@ -5,6 +5,7 @@ const knex = require('knex')
 const knexfile = require('../knexfile.js')
 const knexConfig = knexfile.development
 const db = knex(knexConfig)
+const datab = require('../data/db-config.js')
 
 router.get('/', (req, res) => {
     Stats.find()
@@ -48,7 +49,7 @@ router.put('/:id', (req, res) => {
     Stats.findById(id)
     .then(stat => {
         if(stat) {
-            return Stats.edit(id, change)
+            return Stats.updateRecord(id, change)
             .then(updatedStats => {
                 res.json(updatedStats)
             })
@@ -71,6 +72,22 @@ router.post('/', (req, res) => {
         .catch(error => {
             res.status(500).json({message: "Failed to Post"})
         })
+})
+
+router.post('/:id', (req, res) => {
+    const { id } = req.params
+    console.log(id)    
+    const accumulate = req.body
+    console.log(accumulate)
+    Stats.findById(id)
+    .then(stat => {
+        if(stat) {
+        Stats.add({...accumulate, id})
+            .then(update => {
+                res.status(200).json(update)
+            })
+        }
+    }) 
 })
 
 module.exports = router
