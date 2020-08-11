@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import "./editStats.css"
 import { getPlayers, postPlayers, deletePlayers, editPlayer } from '../../redux/actions.js'
 import { connect } from "react-redux";
-import players from '../players/players';
+
 
 const EditStats = props => {    
     const [stat, setStat] = useState({

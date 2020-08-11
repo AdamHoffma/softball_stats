@@ -7,6 +7,7 @@ import {Route} from "react-router-dom"
 import Players from "./Components/players/players.js"
 import playerForm from "./Components/playerForm/addPlayerForm.js"
 import editStats from "./Components/playerForm/editStats.js"
+import playerList from "./Components/playerpages/playerlist.js"
 
 
 function App() {  
@@ -17,6 +18,7 @@ function App() {
       <Route path ="/players" component={Players} />
       <Route path="/playerform" component={playerForm} />
       <Route path="/editstats" component={editStats} />
+      <Route path='/playerlist' component={playerList} />
     </div>
   );
 }
