@@ -18,8 +18,7 @@ const Home = props => {
     console.log("players", props.players)
 
     return(
-        <div className="home">
-            <Nav/>
+        <div className="home">            
             <div className="welcome">           
                 <h1 className="welcome-text">Welcome to the home of the Bandits!</h1>
                 <img className="logo" src={banner} />

@@ -1,7 +1,6 @@
 import React from "react"
 import { makeStyles } from '@material-ui/core/styles';
 import Link from '@material-ui/core/Link';
-//import { Link } from "react-router-dom";
 import Typography from '@material-ui/core/Typography';
 import "./nav.css"
 
@@ -10,7 +9,7 @@ import "./nav.css"
 const useStyles = makeStyles((theme) => ({
     root: {
       '& > * + *': {
-        marginLeft: theme.spacing(2)                                                
+        marginLeft: theme.spacing(2)                                                       
       },
     },
   }));
@@ -21,8 +20,9 @@ const classes = useStyles();
 const preventDefault = (event) => event.preventDefault();
     
     return (
+        <div className="nav">
         <Typography className={classes.root} >
-            <Link className="link" href="/players" >
+            <Link className="link" href="/playerlist" >
                 Players
             </Link>
             <a><Link className="link" href="#" onClick={preventDefault}>
@@ -38,6 +38,7 @@ const preventDefault = (event) => event.preventDefault();
                 Contact
             </Link>                
         </Typography>
+        </div>
     )
 }
 
