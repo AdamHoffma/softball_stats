@@ -1,0 +1,48 @@
+.playerlistbody {
+    display: flex;
+    background-color: black;  
+    flex-direction: column;  
+    height: 100vh;
+    align-content: center;
+}
+
+.playerlistinnerbody {
+    width: 80vw;
+    background-color: navy;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    flex-direction: column;
+    text-align: center;
+    justify-self: center;
+    margin: auto;      
+}
+
+.playerlistheading {
+    font-size: 2.5vw;
+    color: white;
+    text-shadow: 4px 4px 4px black;
+    padding-bottom: 5vh;
+}
+
+.playerlist {
+    display: flex;
+    width: 30vw;
+    flex-wrap: wrap;
+    margin: auto;
+    justify-content: center;    
+}
+
+.playerdiv {
+    height: 9vh
+}
+
+.link {
+    text-decoration: none;
+    font-size: 1.8vw;
+    color: white;
+    text-shadow: 3px 3px 3px black;
+    padding: 1.5vw;
+    margin: .5vw
+}
+
