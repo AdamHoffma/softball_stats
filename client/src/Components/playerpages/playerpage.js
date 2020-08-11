@@ -12,6 +12,11 @@ const PlayerPage = props => {
     console.log(props.player)
     const players = props.player
 
+    const battingAverage = players.Hits / players.AB
+   
+    const test = players.BB + players.Hits
+    const test2 = test / players.PA
+
     return (
         <div className="playerpagebody">
             <div className="playerpageinnerbody">
@@ -27,7 +32,20 @@ const PlayerPage = props => {
                         </div>
                     </section>
                     <section className='back'>
-                        <p>{players.SB}</p>
+                        <p>At Bats {players.AB}</p>
+                        <p>Plate Appearance {players.PA}</p>
+                        <p>Walks {players.BB}</p>
+                        <p>Strikeouts {players.K}</p>
+                        <p>Strikeouts Looking {players.KL}</p>
+                        <p>Hits {players.Hits}</p>
+                        <p>Doubles {players.Double}</p>
+                        <p>Triples {players.Triple}</p>
+                        <p>Homeruns {players.HR}</p>
+                        <p>Runs Batted In {players.RBI}</p>
+                        <p>Runs Scored {players.R}</p>
+                        <p>Stolen Bases {players.SB}</p>
+                        <p>Batting Average {battingAverage.toFixed(3)}</p>  
+                        <p>On Base Percentage {test2}</p>                      
                     </section>
                 </div>
                 {/* <div className="card">
