@@ -5,21 +5,21 @@ import { connect } from "react-redux";
 import players from '../players/players';
 
 const EditStats = props => {    
-    const [stat, setStat] = useState({
-        PA: null
-    })
+    const [stat, setStat] = useState([{}])
 
     console.log("stat", stat)
 
     useEffect(() => {
         props.getPlayers()
-    }, [])
-
-    const changeHandler = event => {
-        setStat({ [event.target.name]: event.target.value })
-    }
+    }, [])    
 
     const stats = props.stats
+
+    const changeHandler = event => {
+        setStat({...stats, [event.target.name]: event.target.value })
+    }
+
+    const editButton
 
     console.log("stats", stats)
     return (
@@ -28,19 +28,15 @@ const EditStats = props => {
                 <h1 className="editheading">Edit Player Stats</h1>
                 {stats.map(player => {
                     return <div className="stats">
-                                <p contentEditable="true">{player.Player}</p> 
-                                <p contentEditable='true' onChange={changeHandler} name="PA" value={player.PA}>Plate Appearances:{player.PA}<button>edit</button></p>
-                                <p contentEditable='true'>At Bats:{players.AB}</p>
-                                <p contentEditable='true'>Walks:{players.BB}</p>
-                                <p contentEditable='true'>Strikeouts:{players.AB}</p>
-                                <p contentEditable='true'>Strikeouts Looking:{players.AB}</p>
-                                <p contentEditable='true'>Hits:{players.AB}</p>
-                                <p contentEditable='true'>Doubles:{players.AB}</p>
-                                <p contentEditable='true'>Triples:{players.AB}</p>
-                                <p contentEditable='true'>Homeruns:{players.AB}</p>
-                                <p contentEditable='true'>Runs Batted In:{players.AB}</p>
-                                <p contentEditable='true'>Runs Scored:{players.AB}</p>
-                                <p contentEditable='true'>Stolenbases:{players.AB}</p> 
+                                <form>
+                                    <input
+                                        type="text"
+                                        name="AB"
+                                        value={stat.AB}
+                                        onChange={changeHandler}
+                                    />
+                                    <button>Edit</button>
+                                </form> 
                            </div>
                 })}
             </div>

@@ -15,7 +15,7 @@
     flex-direction: column;
     text-align: center;
     justify-self: center;
-    margin: auto;
+    margin: auto;    
 }
 
 .addplayerheading {
@@ -28,7 +28,7 @@
     margin: auto;
     display: flex;    
     align-items: center;
-    padding-top: 10vh;
+    padding-top: 10vh;    
 }
 
 .addplayer-input {
