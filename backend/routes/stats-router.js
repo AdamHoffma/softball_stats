@@ -74,20 +74,4 @@ router.post('/', (req, res) => {
         })
 })
 
-router.post('/:id', (req, res) => {
-    const { id } = req.params
-    console.log(id)    
-    const accumulate = req.body
-    console.log(accumulate)
-    Stats.findById(id)
-    .then(stat => {
-        if(stat) {
-        Stats.add({...accumulate, id})
-            .then(update => {
-                res.status(200).json(update)
-            })
-        }
-    }) 
-})
-
 module.exports = router

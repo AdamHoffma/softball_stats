@@ -5,40 +5,147 @@ import { connect } from "react-redux";
 import players from '../players/players';
 
 const EditStats = props => {    
-    const [stat, setStat] = useState([{}])
-
-    console.log("stat", stat)
+    const [stat, setStat] = useState({
+        PA: null,
+        AB: null
+    })
+    const [player, setPlayer] = useState({})
+    
+    console.log('Setplayer', player)    
 
     useEffect(() => {
-        props.getPlayers()
-    }, [])    
+        props.getPlayers()       
+    }, [])        
 
-    const stats = props.stats
+    const stats = props.stats 
+    
+    console.log("stats", stats)
 
-    const changeHandler = event => {
-        setStat({...stats, [event.target.name]: event.target.value })
+    const setPlayerId = button => {
+        setPlayer({...button})
     }
 
-    const editButton
+    const changeHandler = event => {
+        setStat({...stat, [event.target.name]: event.target.type === "number" ? parseInt(event.target.value) : event.target.value })
+    }
 
-    console.log("stats", stats)
+    console.log('stat', stat)
+
+    const editButton = () => {
+        props.editPlayer(player.id, stat)
+    }
+
+    
     return (
         <div className="editbody">
             <div className="editinnerbody">
                 <h1 className="editheading">Edit Player Stats</h1>
-                {stats.map(player => {
-                    return <div className="stats">
-                                <form>
-                                    <input
-                                        type="text"
-                                        name="AB"
-                                        value={stat.AB}
-                                        onChange={changeHandler}
-                                    />
-                                    <button>Edit</button>
-                                </form> 
+                {stats.map(button => {
+                    return <div>
+                                <button onClick={() => setPlayerId(button)}>{button.Player}</button>
                            </div>
                 })}
+                <form>
+                    <input
+                        type="text"
+                        placeholder='Name'
+                        name="Player"
+                        value={player.Player}                        
+                        onChange={changeHandler}
+                    />
+                    <input
+                        type="text"
+                        placeholder='ID'
+                        name="ID"
+                        value={player.id}
+                        onChange={changeHandler}
+                    />
+                    <input
+                        type="number"
+                        placeholder='AB'
+                        name="AB"
+                        value={stat.AB}
+                        onChange={changeHandler}
+                    />
+                     <input
+                        type="number"
+                        placeholder='PA'
+                        name="PA"
+                        value={stat.PA}
+                        onChange={changeHandler}
+                    />
+                    <input
+                        type="number"
+                        placeholder='BB'
+                        name="BB"
+                        value={stat.BB}
+                        onChange={changeHandler}
+                    />
+                     <input
+                        type="number"
+                        placeholder='K'
+                        name="K"
+                        value={stat.K}
+                        onChange={changeHandler}
+                    />
+                    <input
+                        type="number"
+                        placeholder='KL'
+                        name="KL"
+                        value={stat.KL}
+                        onChange={changeHandler}
+                    />
+                     <input
+                        type="number"
+                        placeholder='Hits'
+                        name="Hits"
+                        value={stat.Hits}
+                        onChange={changeHandler}
+                    />
+                    <input
+                        type="number"
+                        placeholder='Double'
+                        name="Double"
+                        value={stat.Double}
+                        onChange={changeHandler}
+                    />
+                    <input
+                        type="number"
+                        placeholder='Triple'
+                        name="Triple"
+                        value={stat.Triple}
+                        onChange={changeHandler}
+                    />
+                    <input
+                        type="number"
+                        placeholder='HR'
+                        name="HR"
+                        value={stat.HR}
+                        onChange={changeHandler}
+                    />
+                    <input
+                        type="number"
+                        placeholder='RBI'
+                        name="RBI"
+                        value={stat.RBI}
+                        onChange={changeHandler}
+                    />
+                    <input
+                        type="number"
+                        placeholder='R'
+                        name="R"
+                        value={stat.R}
+                        onChange={changeHandler}
+                    />
+                    <input
+                        type="number"
+                        placeholder='SB'
+                        name="SB"
+                        value={stat.SB}
+                        onChange={changeHandler}
+                    />
+                    <button onClick={editButton}>Submit</button>
+                </form>
             </div>
         </div>
     )
