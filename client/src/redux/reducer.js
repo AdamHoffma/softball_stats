@@ -6,7 +6,10 @@ import {
     POST_PLAYERS_SUCCESS,
     POST_PLAYERS_FAILURE,
     DELETE_PLAYERS_START,
-    EDIT_PLAYER
+    EDIT_PLAYER,
+    GET_PLAYER_ID,
+    GET_PLAYER_ID_SUCCESS,
+    GET_PLAYER_ID_FAIL
 } from "./actions.js"
 
 const initialState = {
@@ -53,6 +56,21 @@ const reducer = (state = initialState, action) => {
         case EDIT_PLAYER:
             return {
                 ...state
+            }
+        case GET_PLAYER_ID:
+            return {
+                ...state,
+                fetchingData: true
+            }
+        case GET_PLAYER_ID_SUCCESS:
+            return {
+                ...state,
+                players: action.payload
+            }
+        case GET_PLAYERS_FAIL:
+            return {
+                ...state,
+                error: "failed to get player"
             }
         default:
             return state       

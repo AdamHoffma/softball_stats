@@ -16,6 +16,22 @@ export const getPlayers = () => dispatch => {
     })
 }
 
+export const GET_PLAYER_ID ="GET_PLAYER_ID"
+export const GET_PLAYER_ID_SUCCESS = "GET_PLAYER_ID_SUCCESS"
+export const GET_PLAYER_ID_FAIL = "GET_PLAYER_ID_FAIL"
+
+export const getPlayerById = player_id => dispatch => {
+    dispatch({type: GET_PLAYER_ID})
+    axios
+    .get(`http://localhost:5000/api/stats/${player_id}`)
+    .then(res => {
+        dispatch({type: GET_PLAYER_ID_SUCCESS, payload: res.data})
+    })
+    .catch(error => {
+        dispatch({type: GET_PLAYER_ID_FAIL, payload: error})
+    })
+}
+
 export const POST_PLAYERS_START = "POST_PLAYERS_START"
 export const POST_PLAYERS_SUCCESS = "POST_PLAYERS_SUCCESS"
 export const POST_PLAYERS_FAILURE = "POST_PLAYERS_FAILURE"
