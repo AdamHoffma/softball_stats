@@ -78,16 +78,18 @@
     table-layout: fixed;
     width: 100%;
     margin-bottom: 30px;
-    height: 200px;
+   
     border-collapse: collapse;     
 }
 
 .tablehead {
-    border: 1px solid black
+    border: 1px solid black;
+    height: 100px
 }
 
 .statsrow {
-    border: 1px solid black
+    border: 1px solid black;
+    height: 50px
 }
 
 .tabledata {
