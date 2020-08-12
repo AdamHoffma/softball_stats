@@ -76,7 +76,10 @@
     border: 1px solid black;    
     color: navy;  
     table-layout: fixed;
-    width: 100%      
+    width: 100%;
+    margin-bottom: 30px;
+    height: 200px;
+    border-collapse: collapse;     
 }
 
 .tablehead {
@@ -88,5 +91,7 @@
 }
 
 .tabledata {
-    border: 1px solid black
+    border: 1px solid black;
+    text-align: center;
+    font-size: 22px;
 }
