@@ -32,34 +32,55 @@ const PlayerPage = props => {
                         </div>
                     </section>
                     <section className='back'>
-                        <p>At Bats {players.AB}</p>
-                        <p>Plate Appearance {players.PA}</p>
-                        <p>Walks {players.BB}</p>
-                        <p>Strikeouts {players.K}</p>
-                        <p>Strikeouts Looking {players.KL}</p>
-                        <p>Hits {players.Hits}</p>
-                        <p>Doubles {players.Double}</p>
-                        <p>Triples {players.Triple}</p>
-                        <p>Homeruns {players.HR}</p>
-                        <p>Runs Batted In {players.RBI}</p>
-                        <p>Runs Scored {players.R}</p>
-                        <p>Stolen Bases {players.SB}</p>
-                        <p>Batting Average {battingAverage.toFixed(3)}</p>  
-                        <p>On Base Percentage {test2}</p>                      
+                        <h1 className="backplayername">{players.Player}</h1>
+                            <table className="statstable">
+                                <tr className="rowhead">
+                                    <th className="tablehead">At Bats</th>
+                                    <th className="tablehead">Plate Appearances</th>
+                                    <th className="tablehead">Walks</th>
+                                    <th className="tablehead">Strikeouts</th>
+                                    <th className="tablehead">Struckout Looking</th>
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    {/* <th className="tablehead">Runs</th>
+                                    <th className="tablehead">Stolenbases</th>
+                                    <th className="tablehead">Batting Average</th>
+                                    <th className="tablehead">On Base Percentage</th>
+                                    <th className="tablehead">Slugging Percentage</th> */}
+                                </tr>
+                                <tr className="statsrow">
+                                    <td className="tabledata">{players.AB}</td>
+                                    <td className="tabledata">{players.PA}</td>
+                                </tr>
+                            </table>
+                            <table className="statstable">
+                                <tr className="rowhead">
+                                    <th className="tablehead">Hits</th>
+                                    <th className="tablehead">Doubles</th>
+                                    <th className="tablehead">Triples</th>
+                                    <th className="tablehead">Homeruns</th>
+                                    <th className="tablehead">RBIS</th>
+                                    <th className="tablehead">Hits</th>
+                                    {/* <th className="tablehead">Doubles</th>
+                                    <th className="tablehead">Triples</th>
+                                    <th className="tablehead">Homeruns</th>
+                                    <th className="tablehead">RBIS</th>
+                                    <th className="tablehead">Runs</th>
+                                    <th className="tablehead">Stolenbases</th>
+                                    <th className="tablehead">Batting Average</th>
+                                    <th className="tablehead">On Base Percentage</th>
+                                    <th className="tablehead">Slugging Percentage</th> */}
+                                </tr>
+                                <tr className="statsrow">
+                                    <td className="tabledata">{players.Hits}</td>
+                                    <td className="tabledata">{players.Double}</td>
+                                </tr>
+                            </table>                                              
                     </section>
-                </div>
-                {/* <div className="card">
-                    <section className="back">
-                    <img className="playerphoto" src={banner}/>
-                    <div className="namebody">
-                        <h1 className="playername">{players.Player}</h1>
-                    </div>
-                    <div className="biobody">
-                        <h4>Bio</h4>
-                        <p className="bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    </div>
-                    </section>
-                </div>    */}
+                </div>               
             </div> 
         </div>
     )
