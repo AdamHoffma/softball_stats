@@ -7,6 +7,7 @@ import editStats from "./Components/playerForm/editStats.js"
 import playerList from "./Components/playerpages/playerlist.js"
 import playerPage from "./Components/playerpages/playerpage.js"
 import Nav from './Components/nav/nav.js'
+import Contact from './Components/contact/contact.js'
 
 
 const App = props => {  
@@ -19,6 +20,7 @@ const App = props => {
       <Route path="/editstats" component={editStats} />
       <Route path='/playerlist' component={playerList} />
       <Route path="/player/:id" component={playerPage} />
+      <Route path="/contact" component={Contact} />
     </div>
   );
 }

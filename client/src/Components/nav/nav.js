@@ -34,7 +34,7 @@ const preventDefault = (event) => event.preventDefault();
             <Link className="link" href="#" onClick={preventDefault}>
                 Schedule
             </Link>
-            <Link className="link" href="#" onClick={preventDefault}>
+            <Link className="link" href="/contact">
                 Contact
             </Link>                
         </Typography>
