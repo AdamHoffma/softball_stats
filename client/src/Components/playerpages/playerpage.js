@@ -3,6 +3,7 @@ import {getPlayers, getPlayerById} from "../../redux/actions.js"
 import {connect} from 'react-redux'
 import "./playerpage.css"
 import banner from "../../assets/banner.png"
+import brynlee from "../../assets/brynlee.jpeg"
 
 const PlayerPage = props => {
 
@@ -28,7 +29,7 @@ const PlayerPage = props => {
             <div className="playerpageinnerbody">
                 <div className="card">
                     <section className="front">
-                        <img className="playerphoto" src={banner}/>
+                        <img className="playerphoto" src={brynlee}/>
                         <div className="namebody">
                             <h1 className="playername">{players.Player}</h1>
                         </div>                        
