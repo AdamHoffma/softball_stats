@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import "./editStats.css"
 import { getPlayers, postPlayers, deletePlayers, editPlayer } from '../../redux/actions.js'
 import { connect } from "react-redux";
+import brynlee from "../../assets/brynlee.jpeg"
 
 
 const EditStats = props => {    
@@ -149,6 +150,13 @@ const EditStats = props => {
                         placeholder='Bio'
                         name="bio"
                         value={stat.bio}
+                        onChange={changeHandler}
+                    />
+                     <input
+                        type="text"
+                        placeholder='Image'
+                        name="image"
+                        value={brynlee}
                         onChange={changeHandler}
                     />
                     <button onClick={editButton}>Submit</button>
