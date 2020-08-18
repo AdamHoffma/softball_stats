@@ -6,13 +6,15 @@ const cors = require('cors')
 const creds = require('./config')
 var nodemailer = require('nodemailer')
 
+
 var transport = {
     host: 'smtp.mail.yahoo.com',
-    port: 587,
+    port: 587,    
     auth: {
         user: creds.USER,
         pass: creds.PASS
-    }
+    },
+    logger: true    
 }
 
 var transporter = nodemailer.createTransport(transport)
@@ -32,14 +34,14 @@ const contactRouter = router.post('/send', (req, res, next) => {
     var content = `name: ${name} \n email: ${email} \n message: ${message}`
 
     var mail = {
-        from: name,
-        to: 'wintros@yahoo.com',
+        from: creds.USER,
+        to: "wintros@yahoo.com",
         subject: 'New Message from Contact Form',
         text: content
     }
 
     transporter.sendMail(mail, (err, data) => {
-        if (err) { console.log(err)
+        if (err) { console.log("ERR", err)
             res.json({
                 status: 'fail'
             })
