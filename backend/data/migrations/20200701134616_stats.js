@@ -19,6 +19,8 @@ exports.up = function(knex) {
       tbl.decimal("SLG")
       tbl.decimal("OBP")
       tbl.decimal("OPS")
+      tbl.string("bio")
+      tbl.string("image")
   })  
 };
 
