@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
             res.status(200).json(stats)
         })
         .catch(error => {
-            res.status(500).json({message: "Can't retieve statistics"})
+            res.status(500).json({message: "Can't retrieve statistics"})
         })
 })
 
