@@ -1,0 +1,61 @@
+.contactbody {
+    background-color: black;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+.contactinnerbody {
+    width: 80%;
+    background-color: navy;
+    display: flex;
+    height: 80vh;
+    flex-direction: column;  
+    margin-top: 3rem;
+}
+
+.contactheader {
+    text-align: center;
+    color: white;
+    margin-top: 3rem;
+}
+
+#contactform {
+    width: 25vw;    
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.formgroup {
+    margin-top: 2.6rem;
+    margin-bottom: 2.6rem;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+label {
+    color: white;    
+    margin-right: 1.5rem;
+}
+
+.formcontrol {
+    width: 60%;
+    align-self: center;    
+}
+
+.textareainput {
+    width: 100%
+}
+
+.btn {
+    width: 40%;   
+    padding: 1rem;
+    border-radius: 5px;
+    border: none;
+    color: black;
+    cursor: pointer;
+    background-color: white;
+    align-self: center;
+}
+

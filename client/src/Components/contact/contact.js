@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import "./contact.css"
 
 
 const Contact = () => {
@@ -36,21 +37,24 @@ const Contact = () => {
 
     return (
         <div className='contactbody'>
-            <form id="contactform" onSubmit={handleSubmit} method="POST">
-                <div className="formgroup">
-                    <label htmlFor="name">Name</label>
-                    <input name="name" type="text" className="formcontrol" value={state.name} onChange={changeHandler} />
-                </div>
-                <div className="formgroup">
-                    <label htmlFor="exampleInputEmail1">Email Address</label>
-                    <input name="email" type="email" className="formcontrol" aria-describedby="emailHelp" value={state.email} onChange={changeHandler} />
-                </div>
-                <div className="formgroup">
-                    <label htmlFor="message">Message</label>
-                    <textarea name="message" className="formcontrol" rows="5"  value={state.message} onChange={changeHandler} />
-                </div>
-                <button type="submit" className="btn">Submit</button>
-            </form>
+            <div className="contactinnerbody">
+                <h1 className="contactheader">Contact Coach Adam Hoffman</h1>
+                <form id="contactform" onSubmit={handleSubmit} method="POST">
+                    <div className="formgroup">
+                        <label htmlFor="name">Name</label>
+                        <input name="name" type="text" className="formcontrol" value={state.name} onChange={changeHandler} />
+                    </div>
+                    <div className="formgroup">
+                        <label htmlFor="exampleInputEmail1">Email Address</label>
+                        <input name="email" type="email" className="formcontrol" aria-describedby="emailHelp" value={state.email} onChange={changeHandler} />
+                    </div>
+                    <div className="formgroup">
+                        <label htmlFor="message">Message</label>
+                        <textarea name="message" className="formcontrol textareainput" rows="10" value={state.message} onChange={changeHandler} />
+                    </div>
+                    <button type="submit" className="btn">Submit</button>
+                </form>
+            </div>
         </div>
     )
 }
