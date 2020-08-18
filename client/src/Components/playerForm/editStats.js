@@ -144,6 +144,13 @@ const EditStats = props => {
                         value={stat.SB}
                         onChange={changeHandler}
                     />
+                    <input
+                        type="text"
+                        placeholder='Bio'
+                        name="bio"
+                        value={stat.bio}
+                        onChange={changeHandler}
+                    />
                     <button onClick={editButton}>Submit</button>
                 </form>
             </div>
