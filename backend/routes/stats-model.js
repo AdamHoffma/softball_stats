@@ -50,6 +50,7 @@ async function updateRecord(player_id, new_data){
     const updatedSb = user_stats.SB += new_data.SB
     const updatedBa = user_stats.Hits /= user_stats.AB
     const updatedbio = new_data.bio
+    const updatedImage = new_data.image
     
     await edit(player_id, {
         ...user_stats,
@@ -65,7 +66,8 @@ async function updateRecord(player_id, new_data){
         RBI: updatedRbi,
         R: updatedR,
         SB: updatedSb,
-        bio: updatedbio        
+        bio: updatedbio,
+        image: updatedImage      
     })
     return user_stats    
 }
