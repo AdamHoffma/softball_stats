@@ -6,6 +6,7 @@ exports.up = function(knex) {
       tbl.string("location")
       tbl.string("time")
       tbl.string("arrival")
+      tbl.string("date")
   })
 };
 
