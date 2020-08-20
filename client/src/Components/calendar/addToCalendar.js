@@ -10,14 +10,13 @@ const AddToCalendar = props => {
     useEffect(() => {
         axios.get("http://localhost:5000/api/schedule")
         .then(res => {
-            setNewEvent(res.data)
+            console.log("res", res)
         })
     }, [])
-    console.log(newEvent)
     
 
     const changeHandler = event => {
-        setNewEvent({[event.target.name]: event.target.value})
+        setNewEvent({...newEvent, [event.target.name]: event.target.value})
     }
 
     const postEvent = () => {
@@ -38,7 +37,7 @@ const AddToCalendar = props => {
                     <input
                         type="text"
                         placeholder="Location"
-                        name="locations"
+                        name="location"
                         value={newEvent.location}
                         onChange={changeHandler}
                     />
