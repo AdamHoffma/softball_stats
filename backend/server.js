@@ -5,6 +5,14 @@ const statsRouter = require('./routes/stats-router.js')
 const cors = require('cors')
 const creds = require('./config')
 var nodemailer = require('nodemailer')
+const multer = require('multer')
+
+const storage = multer.diskStorage({
+    destination: 'backend/assets',
+    filename: function (req, file, callback) {
+        
+    }
+})
 
 
 var transport = {
