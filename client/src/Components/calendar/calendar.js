@@ -1,6 +1,9 @@
-import React, {useState} from 'react'   
+import React, {useState, useEffect} from 'react'   
 import "./calendar.css" 
 import  * as dateFns from "date-fns"
+import {getEvent} from "../../redux/actions.js"
+import { connect } from 'react-redux'
+import addToCalendar from './addToCalendar'
 
 const events = [{ title: "Today", date: new Date() }]
 
@@ -14,7 +17,14 @@ const [schedule, setSchedule] = useState({
     name: "appointment"
 })
 
+useEffect(() => {
+    props.getEvent()
+}, [])
 
+console.log("events", props.scheduled)
+const test = dateFns.format(props.getEvent.date, 'MMMM dddd yyyy')
+console.log('test', test)
+console.log("date", new Date())
 
 const renderHeader = () => {
     const dateFormat = "MMMM yyyy"
@@ -82,8 +92,7 @@ const renderCells = () => {
                     onClick={() => onDateClick(dateFns.parse(cloneDay))}
                 >
                     <span className="number">{formattedDate}</span>
-                    <span className="bg">{formattedDate}</span>
-                   
+                    <span className="bg">{formattedDate}</span>                   
                 </div>
             )
             day = dateFns.addDays(day, 1)
@@ -125,4 +134,10 @@ const prevMonth = () => {
     )
 }
 
-export default Calendar
+const mapStateToProps = state => {
+    return {
+        scheduled: state.events
+    }
+}
+
+export default connect(mapStateToProps, {getEvent})(Calendar)

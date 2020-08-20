@@ -84,6 +84,16 @@ export const editPlayer = (player_id, values) => dispatch => {
         })
 }
 
+export const GET_EVENT= "GET_EVENT"
+
+export const getEvent = () => dispatch => {
+    axios
+        .get("http://localhost:5000/api/schedule")
+        .then(res => {
+            dispatch({type: GET_EVENT, payload: res.data})
+        })
+}
+
 export const ADD_EVENT = "ADD_EVENT"
 
 export const addEvent = newEvent => dispatch => {

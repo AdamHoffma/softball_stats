@@ -5,14 +5,7 @@ import axios from "axios"
 
 
 const AddToCalendar = props => {
-    const [newEvent, setNewEvent] = useState({})
-
-    useEffect(() => {
-        axios.get("http://localhost:5000/api/schedule")
-        .then(res => {
-            console.log("res", res)
-        })
-    }, [])
+    const [newEvent, setNewEvent] = useState({})  
     
 
     const changeHandler = event => {
@@ -21,6 +14,7 @@ const AddToCalendar = props => {
 
     const postEvent = () => {
         props.addEvent(newEvent)
+        window.reload()
     }
 
     return (

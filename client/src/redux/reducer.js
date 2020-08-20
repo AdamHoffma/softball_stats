@@ -9,7 +9,8 @@ import {
     EDIT_PLAYER,
     GET_PLAYER_ID,
     GET_PLAYER_ID_SUCCESS,
-    ADD_EVENT
+    ADD_EVENT,
+    GET_EVENT
 } from "./actions.js"
 
 const initialState = {
@@ -74,6 +75,11 @@ const reducer = (state = initialState, action) => {
                 error: "failed to get player"
             }
         case ADD_EVENT:
+            return {
+                ...state,
+                events: action.payload
+            }
+        case GET_EVENT:
             return {
                 ...state,
                 events: action.payload
