@@ -55,6 +55,13 @@ const AddToCalendar = props => {
                         value={newEvent.arrival}
                         onChange={changeHandler}
                     />
+                     <input
+                        type="text"
+                        placeholder="Date"
+                        name="date"
+                        value={newEvent.date}
+                        onChange={changeHandler}
+                    />
                     <button className="eventbutton" onClick={postEvent}>Submit</button>
                 </form>
             </div>            
