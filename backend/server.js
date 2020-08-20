@@ -2,18 +2,10 @@ const express = require("express")
 const server = express()
 const router = express.Router()
 const statsRouter = require('./routes/stats-router.js')
+const scheduleRouter = require('./routes/schedule-router.js')
 const cors = require('cors')
 const creds = require('./config')
 var nodemailer = require('nodemailer')
-const multer = require('multer')
-
-const storage = multer.diskStorage({
-    destination: 'backend/assets',
-    filename: function (req, file, callback) {
-        
-    }
-})
-
 
 var transport = {
     host: 'smtp.mail.yahoo.com',
@@ -65,6 +57,7 @@ server.use(express.json())
 server.use(cors())
 server.use('/api/stats', statsRouter)
 server.use("/", contactRouter)
+server.use("/api/schedule", scheduleRouter)
 
 
 server.get("/", (req, res) => {
