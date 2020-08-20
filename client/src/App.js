@@ -8,6 +8,7 @@ import playerList from "./Components/playerpages/playerlist.js"
 import playerPage from "./Components/playerpages/playerpage.js"
 import Nav from './Components/nav/nav.js'
 import Contact from './Components/contact/contact.js'
+import Calendar from './Components/calendar/calendar';
 
 
 const App = props => {  
@@ -21,6 +22,7 @@ const App = props => {
       <Route path='/playerlist' component={playerList} />
       <Route path="/player/:id" component={playerPage} />
       <Route path="/contact" component={Contact} />
+      <Route path="/calendar" component={Calendar} />
     </div>
   );
 }

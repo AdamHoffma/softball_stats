@@ -3,14 +3,14 @@ import {getPlayers, getPlayerById} from "../../redux/actions.js"
 import {connect} from 'react-redux'
 import "./playerpage.css"
 import banner from "../../assets/banner.png"
-import brynlee from "../../assets/brynlee.jpeg"
+import getPic from "../../utils/getPic.js"
 
 const PlayerPage = props => {
 
     useEffect(() => {
         props.getPlayerById(props.match.params.id)
     }, [])
-    console.log(props.player)
+    console.log("id", props.player.id)
     const players = props.player
 
     const battingAverage = (players.Hits / players.AB).toFixed(3)
@@ -25,16 +25,18 @@ const PlayerPage = props => {
     
 
     return (
-        <div className="playerpagebody">
+        <div className="playerpagebody">                     
             <div className="playerpageinnerbody">
                 <div className="card">
                     <section className="front">
-                        <img className="playerphoto" src={brynlee}/>
+                        <img className="playerphoto" src={getPic(players.id)}/>
                         <div className="namebody">
                             <h1 className="playername">{players.Player}</h1>
                         </div>                        
                         <div className="biobody">
-                            <h4>Bio</h4>
+                            <h4>
+                                About: {players.Player}
+                            </h4>
                             <p className="bio">{players.bio}</p>
                         </div>
                     </section>
@@ -42,18 +44,16 @@ const PlayerPage = props => {
                         <h1 className="backplayername">{players.Player}</h1>
                             <table className="statstable">
                                 <tr className="rowhead">
-                                    <th className="tablehead">At Bats</th>
-                                    <th className="tablehead">Plate Appearances</th>
+                                    <th className="tablehead">ABS</th>
+                                    <th className="tablehead">PAS</th>
                                     <th className="tablehead">Walks</th>
-                                    <th className="tablehead">Strikeouts</th>
-                                    <th className="tablehead">Struckout Looking</th>                                    
+                                    <th className="tablehead">KS</th>                                                                        
                                 </tr>
                                 <tr className="statsrow">
                                     <td className="tabledata">{players.AB}</td>
                                     <td className="tabledata">{players.PA}</td>
                                     <td className="tabledata">{players.BB}</td>
-                                    <td className="tabledata">{players.K}</td>
-                                    <td className="tabledata">{players.KL}</td>
+                                    <td className="tabledata">{players.K}</td>                                    
                                 </tr>
                             </table>
                             <table className="statstable">
@@ -61,7 +61,7 @@ const PlayerPage = props => {
                                     <th className="tablehead">Hits</th>
                                     <th className="tablehead">Doubles</th>
                                     <th className="tablehead">Triples</th>
-                                    <th className="tablehead">Homeruns</th>
+                                    <th className="tablehead">HRS</th>
                                     <th className="tablehead">RBIS</th>                                                                      
                                 </tr>
                                 <tr className="statsrow">
@@ -75,10 +75,10 @@ const PlayerPage = props => {
                             <table className="statstable">
                                 <tr className="rowhead">                                    
                                     <th className="tablehead">Runs</th>
-                                    <th className="tablehead">Stolenbases</th>
-                                    <th className="tablehead">Batting Average</th>
-                                    <th className="tablehead">On Base Percentage</th>
-                                    <th className="tablehead">Slugging Percentage</th> 
+                                    <th className="tablehead">SBS</th>
+                                    <th className="tablehead">AVG</th>
+                                    <th className="tablehead">OBP</th>
+                                    <th className="tablehead">SLG</th> 
                                 </tr>
                                 <tr className="statsrow">
                                     <td className="tabledata">{players.R}</td>

@@ -31,7 +31,7 @@ const preventDefault = (event) => event.preventDefault();
             <Link className="link" href="#" onClick={preventDefault}>
                 Videos
             </Link>
-            <Link className="link" href="#" onClick={preventDefault}>
+            <Link className="link" href="/calendar">
                 Schedule
             </Link>
             <Link className="link" href="/contact">
