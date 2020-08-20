@@ -46,7 +46,7 @@ const EditStats = props => {
                                 <button onClick={() => setPlayerId(button)}>{button.Player}</button>
                            </div>
                 })}
-                <form encType="multipart/form-data" action="/upload">
+                <form>
                     <input
                         type="text"
                         placeholder='Name'

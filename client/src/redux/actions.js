@@ -83,3 +83,14 @@ export const editPlayer = (player_id, values) => dispatch => {
             console.log("error", error)
         })
 }
+
+export const ADD_EVENT = "ADD_EVENT"
+
+export const addEvent = newEvent => dispatch => {
+    axios
+        .post("http://localhost:5000/api/schedule", newEvent)
+        .then(res => {
+            dispatch({type: ADD_EVENT, payload: res.data})
+            window.alert("Event added")
+        })
+}

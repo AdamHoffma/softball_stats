@@ -9,13 +9,14 @@ import {
     EDIT_PLAYER,
     GET_PLAYER_ID,
     GET_PLAYER_ID_SUCCESS,
-    GET_PLAYER_ID_FAIL
+    ADD_EVENT
 } from "./actions.js"
 
 const initialState = {
     error: "",
     fetchingData: false,
-    players: []
+    players: [],
+    events: []
 }
 
 const reducer = (state = initialState, action) => {
@@ -71,6 +72,11 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 error: "failed to get player"
+            }
+        case ADD_EVENT:
+            return {
+                ...state,
+                events: action.payload
             }
         default:
             return state       

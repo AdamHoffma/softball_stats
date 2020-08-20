@@ -2,9 +2,6 @@ import React, {useState} from 'react'
 import "./calendar.css" 
 import  * as dateFns from "date-fns"
 
-
-
-
 const events = [{ title: "Today", date: new Date() }]
 
 const Calendar = props => {
@@ -12,6 +9,12 @@ const [state, setState] = useState({
     currentMonth: new Date(),
     selectedDate: new Date()
 })
+
+const [schedule, setSchedule] = useState({
+    name: "appointment"
+})
+
+
 
 const renderHeader = () => {
     const dateFormat = "MMMM yyyy"
@@ -80,6 +83,7 @@ const renderCells = () => {
                 >
                     <span className="number">{formattedDate}</span>
                     <span className="bg">{formattedDate}</span>
+                   
                 </div>
             )
             day = dateFns.addDays(day, 1)
