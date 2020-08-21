@@ -1,41 +1,29 @@
 import React, {useState, useEffect} from 'react'
 import "./editStats.css"
-import { getPlayers, postPlayers, deletePlayers, editPlayer } from '../../redux/actions.js'
+import { getPlayers, editPlayer } from '../../redux/actions.js'
 import { connect } from "react-redux";
 
-
-
-const EditStats = props => {    
-    const [stat, setStat] = useState({
-        PA: null,
-        AB: null
-    })
-    const [player, setPlayer] = useState({})
-    
-    console.log('Setplayer', player)    
+const EditStats = ({getPlayers, editPlayer, stats}) => {    
+    const [stat, setStat] = useState({})
+    const [player, setPlayer] = useState({})      
 
     useEffect(() => {
-        props.getPlayers()       
-    }, [stat])        
-
-    const stats = props.stats 
-    
-    console.log("stats", stats)
+        getPlayers()       
+    }, [getPlayers])          
 
     const setPlayerId = button => {
         setPlayer({...button})
     }
 
     const changeHandler = event => {
-        setStat({...stat, [event.target.name]: event.target.type === "number" ? parseInt(event.target.value) : event.target.value })
-    }
-
-    console.log('stat', stat)
+        setStat({...stat, [event.target.name]: 
+            event.target.type === "number" ? parseInt(event.target.value) 
+            : event.target.value })
+    }    
 
     const editButton = () => {
-        props.editPlayer(player.id, stat)
+        editPlayer(player.id, stat)
     }
-
     
     return (
         <div className="editbody">
@@ -43,7 +31,10 @@ const EditStats = props => {
                 <h1 className="editheading">Edit Player Stats</h1>
                 {stats.map(button => {
                     return <div>
-                                <button onClick={() => setPlayerId(button)}>{button.Player}</button>
+                                <button 
+                                    onClick={() => setPlayerId(button)}>
+                                    {button.Player}
+                                </button>
                            </div>
                 })}
                 <form>

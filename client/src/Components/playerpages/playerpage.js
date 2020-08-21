@@ -1,26 +1,22 @@
-import React, { useState, useEffect} from 'react'
+import React, { useEffect } from 'react'
 import {getPlayers, getPlayerById} from "../../redux/actions.js"
 import {connect} from 'react-redux'
 import "./playerpage.css"
-import banner from "../../assets/banner.png"
 import getPic from "../../utils/getPic.js"
 
-const PlayerPage = props => {
+const PlayerPage = ({getPlayerById, player, props}) => {
 
     useEffect(() => {
-        props.getPlayerById(props.match.params.id)
-    }, [])
-    console.log("id", props.player.id)
+        getPlayerById(props.match.params.id)
+    }, [getPlayerById, props.match.params.id])
+    
     const players = props.player
 
-    const battingAverage = (players.Hits / players.AB).toFixed(3)
-   
+    const battingAverage = (players.Hits / players.AB).toFixed(3)   
     const onBase = ((players.BB + players.Hits) / ( players.PA)).toFixed(3)
-
     const double = players.Double * 2
     const triple = players.Triple * 3
     const homerun = players.HR * 4
-
     const slugging = ((double + triple + homerun) / (players.AB)).toFixed(3)
     
 
@@ -29,7 +25,7 @@ const PlayerPage = props => {
             <div className="playerpageinnerbody">
                 <div className="card">
                     <section className="front">
-                        <img className="playerphoto" src={getPic(players.id)}/>
+                        <img alt="player" className="playerphoto" src={getPic(players.id)}/>
                         <div className="namebody">
                             <h1 className="playername">{players.Player}</h1>
                         </div>                        

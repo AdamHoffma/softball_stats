@@ -3,16 +3,16 @@ import { getPlayers, postPlayers, deletePlayers, editPlayer } from '../../redux/
 import { connect } from "react-redux";
 import "./addPlayerForm.css"
 
-const PlayerForm = props => {
+const PlayerForm = ({getPlayers, postPlayers, deletePlayers, editPlayer, players}) => {
     const [values, setValues] = useState({
         Player: ""
     })
 
     useEffect(() => {
-        props.getPlayers()           
-    }, []) 
+        getPlayers()           
+    }, [getPlayers]) 
 
-    let players = props.players
+    
     const returnedPlayers = Array.from(players)
     
     console.log("returned", returnedPlayers)
@@ -24,12 +24,12 @@ const PlayerForm = props => {
 
     const submit = e => {   
         e.preventDefault()     
-        props.postPlayers(values)        
+        postPlayers(values)        
     }   
 
     const removePlayer = p => {
-        props.deletePlayers(p.id)
-        const newArray = props.players.filter(person => person.id != props.players.id)
+        deletePlayers(p.id)
+        const newArray = players.filter(person => person.id !== players.id)
         return newArray
     } 
 

@@ -1,7 +1,7 @@
-import React, {useEffect, useState} from 'react'
+import React, { useState } from 'react'
 import {addEvent} from "../../redux/actions.js"
 import { connect } from 'react-redux'
-import axios from "axios"
+
 
 
 const AddToCalendar = props => {

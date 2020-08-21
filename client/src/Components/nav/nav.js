@@ -25,9 +25,9 @@ const preventDefault = (event) => event.preventDefault();
             <Link className="link" href="/playerlist" >
                 Players
             </Link>
-            <a><Link className="link" href="#" onClick={preventDefault}>
+            <Link className="link" href="#" onClick={preventDefault}>
                 Photos
-            </Link></a>
+            </Link>
             <Link className="link" href="#" onClick={preventDefault}>
                 Videos
             </Link>

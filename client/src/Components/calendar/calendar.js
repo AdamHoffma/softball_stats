@@ -3,9 +3,6 @@ import "./calendar.css"
 import  * as dateFns from "date-fns"
 import {getEvent} from "../../redux/actions.js"
 import { connect } from 'react-redux'
-import addToCalendar from './addToCalendar'
-
-const events = [{ title: "Today", date: new Date() }]
 
 const Calendar = props => {
 const [state, setState] = useState({
@@ -17,28 +14,12 @@ useEffect(() => {
     props.getEvent()
 }, [])
 
-console.log("scheduled", props.scheduled)
-
-const [schedule, setSchedule] = useState({
-    name: "appointment"
-})
-const test = new Date(2020, 0, 22)
-
-console.log('tis', test.getDate())
-
-console.log("Test", test)
 useEffect(() => {
     props.getEvent()
 }, [])
 
-// console.log("events", props.scheduled)
-// const test = dateFns.format(props.getEvent.date, 'MMMM dddd yyyy')
-// console.log('test', test)
-// console.log("date", new Date())
-
 const renderHeader = () => {
     const dateFormat = "MMMM yyyy"
-
     return (
         <div className="header row flex-middle">
             <div className="col col-start">
@@ -60,7 +41,6 @@ const renderHeader = () => {
 const renderDays = () => {
     const dateFormat = "E"
     const days = []
-
     let startDate = dateFns.startOfWeek(state.currentMonth)
 
     for (let i = 0; i < 7; i++){
@@ -79,10 +59,8 @@ const renderCells = () => {
     const monthEnd = dateFns.endOfMonth(monthStart)
     const startDate = dateFns.startOfWeek(monthStart)
     const endDate = dateFns.endOfWeek(monthEnd)
-
     const dateFormat = "d"
     const rows = []
-
     let days = []
     let day = startDate
     let formattedDate = ""
@@ -138,12 +116,6 @@ const renderCells = () => {
 const onDateClick = cloneDay => {    
     console.log("CLICK", cloneDay)
 }
-
-// const onDateClick = day => {
-//     setState({
-//         selectedDate: day
-//     })
-// }
 
 const nextMonth = () => {
     setState({

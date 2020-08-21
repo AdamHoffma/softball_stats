@@ -1,16 +1,14 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import {getPlayers} from "../../redux/actions.js"
 import { connect } from 'react-redux'
 import {Link} from "react-router-dom"
 import "./playerlist.css"
 
-const PlayerList = props => {
+const PlayerList = ({getPlayers, players}) => {
 
     useEffect(() => {
-        props.getPlayers()
-    }, [])
-
-    const players = props.players
+        getPlayers()
+    }, [getPlayers])    
 
     return(
         <div className="playerlistbody">

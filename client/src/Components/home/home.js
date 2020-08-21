@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { getPlayers } from "../../redux/actions.js"
 import { connect } from 'react-redux'
 import banner from "../../assets/banner.png"
@@ -9,20 +9,20 @@ import "./home.css"
 
 
 
-const Home = props => {
+const Home = ({getPlayers, players}) => {
     useEffect(() => {
-        props.getPlayers()
-    }, [])
+        getPlayers()
+    }, [getPlayers])
 
 
-    console.log("players", props.players)
+    console.log("players", players)
 
     return(
         <div className="home">            
             <div className="welcome">           
                 <h1 className="welcome-text">Welcome to the home of the Bandits!</h1>
-                <img className="logo" src={banner} />
-                <img className="team-photo" src={teamPhoto} />
+                <img alt="team logo" className="logo" src={banner} />
+                <img alt="team" className="team-photo" src={teamPhoto} />
             </div>
         </div>
     )
