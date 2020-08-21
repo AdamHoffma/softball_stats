@@ -51,7 +51,7 @@ const AddToCalendar = props => {
                     />
                      <input
                         type="text"
-                        placeholder="Date"
+                        placeholder="YYYY, M, D"
                         name="date"
                         value={newEvent.date}
                         onChange={changeHandler}
