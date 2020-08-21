@@ -13,18 +13,28 @@ const [state, setState] = useState({
     selectedDate: new Date()
 })
 
-const [schedule, setSchedule] = useState({
-    name: "appointment"
-})
-
 useEffect(() => {
     props.getEvent()
 }, [])
 
-console.log("events", props.scheduled)
-const test = dateFns.format(props.getEvent.date, 'MMMM dddd yyyy')
-console.log('test', test)
-console.log("date", new Date())
+console.log("scheduled", props.scheduled)
+
+const [schedule, setSchedule] = useState({
+    name: "appointment"
+})
+const test = new Date(2020, 0, 22)
+
+console.log('tis', test.getDate())
+
+console.log("Test", test)
+useEffect(() => {
+    props.getEvent()
+}, [])
+
+// console.log("events", props.scheduled)
+// const test = dateFns.format(props.getEvent.date, 'MMMM dddd yyyy')
+// console.log('test', test)
+// console.log("date", new Date())
 
 const renderHeader = () => {
     const dateFormat = "MMMM yyyy"
@@ -48,7 +58,7 @@ const renderHeader = () => {
     )
 }
 const renderDays = () => {
-    const dateFormat = "dd"
+    const dateFormat = "E"
     const days = []
 
     let startDate = dateFns.startOfWeek(state.currentMonth)
@@ -80,7 +90,7 @@ const renderCells = () => {
     while (day <= endDate) {
         for (let i = 0; i < 7; i++) {
             formattedDate = dateFns.format(day, dateFormat)
-            const cloneDay = day
+            const cloneDay = day            
             days.push(
                 <div
                     className={`col cell ${
@@ -89,13 +99,31 @@ const renderCells = () => {
                             : dateFns.isSameDay(day, selectedDate) ? "selected" : ""
                     }`}
                     key={day}
-                    onClick={() => onDateClick(dateFns.parse(cloneDay))}
+                    onClick={() => onDateClick(cloneDay)}
                 >
                     <span className="number">{formattedDate}</span>
-                    <span className="bg">{formattedDate}</span>                   
+                    <span className="bg">{formattedDate}</span>
+                    {props.scheduled.map(e => {
+                        const timeStamp = new Date(e.date)
+                        console.log("timeStamp", timeStamp)
+                        const equalizer = timeStamp.getDate()
+                        console.log('equalizer', equalizer)
+                        const gridDay = cloneDay.getDate()
+                        console.log("griday", gridDay)
+                        const gridMonth = cloneDay.getMonth()
+                        const monthEqualizer = timeStamp.getMonth()
+                        if (equalizer === gridDay && gridMonth === monthEqualizer) {
+                            return <div className='schedule'>
+                                <span>{e.name}</span>
+                                <span>Location: {e.location}</span>
+                                <span>Arrival: {e.arrival}</span>
+                                <span>Time: {e.time}</span>                                
+                            </div>
+                        }
+                    })}                  
                 </div>
             )
-            day = dateFns.addDays(day, 1)
+            day = dateFns.addDays(day, 1)            
         }
         rows.push(
             <div className="row" key={day}>
@@ -107,11 +135,15 @@ const renderCells = () => {
     return <div className="body">{rows}</div>
 }
 
-const onDateClick = day => {
-    setState({
-        selectedDate: day
-    })
+const onDateClick = cloneDay => {    
+    console.log("CLICK", cloneDay)
 }
+
+// const onDateClick = day => {
+//     setState({
+//         selectedDate: day
+//     })
+// }
 
 const nextMonth = () => {
     setState({
