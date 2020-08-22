@@ -4,11 +4,11 @@ import HALIE from "../playerpic/halie.PNG"
 
 const getPic = player => {
     switch (player) {
-        case 1:
+        case "Brynlee Taga":
             return BRYNLEE;
-        case 2:
+        case "Addison Yurt":
             return ADDY;
-        case 3:
+        case "Halie Lavoie":
             return HALIE
     }
         

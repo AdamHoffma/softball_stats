@@ -4,13 +4,14 @@ import {connect} from 'react-redux'
 import "./playerpage.css"
 import getPic from "../../utils/getPic.js"
 
-const PlayerPage = ({getPlayerById, player, props}) => {
+const PlayerPage = (props, {getPlayerById, player}) => {
 
     useEffect(() => {
-        getPlayerById(props.match.params.id)
-    }, [getPlayerById, props.match.params.id])
+        props.getPlayerById(props.match.params.id)
+    }, [getPlayerById])
     
     const players = props.player
+    console.log("taga", players)
 
     const battingAverage = (players.Hits / players.AB).toFixed(3)   
     const onBase = ((players.BB + players.Hits) / ( players.PA)).toFixed(3)
@@ -25,7 +26,7 @@ const PlayerPage = ({getPlayerById, player, props}) => {
             <div className="playerpageinnerbody">
                 <div className="card">
                     <section className="front">
-                        <img alt="player" className="playerphoto" src={getPic(players.id)}/>
+                        <img alt="player" className="playerphoto" src={getPic(players.Player)}/>
                         <div className="namebody">
                             <h1 className="playername">{players.Player}</h1>
                         </div>                        
@@ -39,20 +40,25 @@ const PlayerPage = ({getPlayerById, player, props}) => {
                     <section className='back'>
                         <h1 className="backplayername">{players.Player}</h1>
                             <table className="statstable">
+                                <tbody>
                                 <tr className="rowhead">
                                     <th className="tablehead">ABS</th>
                                     <th className="tablehead">PAS</th>
                                     <th className="tablehead">Walks</th>
                                     <th className="tablehead">KS</th>                                                                        
                                 </tr>
+                                </tbody>
+                                <tbody>
                                 <tr className="statsrow">
                                     <td className="tabledata">{players.AB}</td>
                                     <td className="tabledata">{players.PA}</td>
                                     <td className="tabledata">{players.BB}</td>
                                     <td className="tabledata">{players.K}</td>                                    
                                 </tr>
+                                </tbody>
                             </table>
                             <table className="statstable">
+                                <tbody>
                                 <tr className="rowhead">
                                     <th className="tablehead">Hits</th>
                                     <th className="tablehead">Doubles</th>
@@ -60,6 +66,8 @@ const PlayerPage = ({getPlayerById, player, props}) => {
                                     <th className="tablehead">HRS</th>
                                     <th className="tablehead">RBIS</th>                                                                      
                                 </tr>
+                                </tbody>
+                                <tbody>
                                 <tr className="statsrow">
                                     <td className="tabledata">{players.Hits}</td>
                                     <td className="tabledata">{players.Double}</td>
@@ -67,8 +75,10 @@ const PlayerPage = ({getPlayerById, player, props}) => {
                                     <td className="tabledata">{players.HR}</td>
                                     <td className="tabledata">{players.RBI}</td>
                                 </tr>
+                                </tbody>
                             </table>
                             <table className="statstable">
+                                <tbody>
                                 <tr className="rowhead">                                    
                                     <th className="tablehead">Runs</th>
                                     <th className="tablehead">SBS</th>
@@ -76,6 +86,8 @@ const PlayerPage = ({getPlayerById, player, props}) => {
                                     <th className="tablehead">OBP</th>
                                     <th className="tablehead">SLG</th> 
                                 </tr>
+                                </tbody>
+                                <tbody>
                                 <tr className="statsrow">
                                     <td className="tabledata">{players.R}</td>
                                     <td className="tabledata">{players.SB}</td>
@@ -83,6 +95,7 @@ const PlayerPage = ({getPlayerById, player, props}) => {
                                     <td className="tabledata">{onBase}</td>
                                     <td className="tabledata">{slugging}</td>
                                 </tr>
+                                </tbody>
                             </table>                                    
                     </section>
                 </div>               
