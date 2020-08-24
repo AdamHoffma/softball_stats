@@ -3,9 +3,11 @@ const server = express()
 const router = express.Router()
 const statsRouter = require('./routes/stats-router.js')
 const scheduleRouter = require('./routes/schedule-router.js')
+const loginRouter = require('./auth/login-route.js')
 const cors = require('cors')
 const creds = require('./config')
 var nodemailer = require('nodemailer')
+const helmet = require('helmet')
 
 var transport = {
     host: 'smtp.mail.yahoo.com',
@@ -53,11 +55,13 @@ const contactRouter = router.post('/send', (req, res, next) => {
     })
 })
 
+server.use(helmet())
 server.use(express.json())
 server.use(cors())
 server.use('/api/stats', statsRouter)
 server.use("/", contactRouter)
 server.use("/api/schedule", scheduleRouter)
+server.use("/api/login", loginRouter)
 
 
 server.get("/", (req, res) => {

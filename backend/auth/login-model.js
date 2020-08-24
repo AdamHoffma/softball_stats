@@ -5,5 +5,5 @@ module.exports = {
 }
 
 function findBy(id) {
-    return db('users').where(id)
+    return db('user').where(id).first()
 }
