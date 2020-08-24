@@ -10,14 +10,16 @@ import {
     GET_PLAYER_ID,
     GET_PLAYER_ID_SUCCESS,
     ADD_EVENT,
-    GET_EVENT
+    GET_EVENT,
+    LOGIN
 } from "./actions.js"
 
 const initialState = {
     error: "",
     fetchingData: false,
     players: [],
-    events: []
+    events: [],
+    user: []
 }
 
 const reducer = (state = initialState, action) => {
@@ -83,6 +85,11 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 events: action.payload
+            }
+        case LOGIN: 
+            return {
+                ...state,
+                user: action.payload
             }
         default:
             return state       

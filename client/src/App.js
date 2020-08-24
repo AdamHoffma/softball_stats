@@ -10,6 +10,7 @@ import Nav from './Components/nav/nav.js'
 import Contact from './Components/contact/contact.js'
 import Calendar from './Components/calendar/calendar';
 import addToCalendar from "./Components/calendar/addToCalendar.js"
+import LoginPage from "./Components/login/login.js"
 
 
 const App = props => {  
@@ -17,7 +18,8 @@ const App = props => {
   return (
     <div>
       <Nav/>
-      <Route exact path="/" component={Home} />      
+      <Route exact path="/" component={Home} />
+      <Route path="/login" component={LoginPage} />      
       <Route path="/playerform" component={playerForm} />
       <Route path="/editstats" component={editStats} />
       <Route path='/playerlist' component={playerList} />

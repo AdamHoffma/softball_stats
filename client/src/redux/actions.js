@@ -104,3 +104,17 @@ export const addEvent = newEvent => dispatch => {
             window.alert("Event added")
         })
 }
+
+export const LOGIN = 'LOGIN'
+
+export const Login = user => dispatch => {
+    axios
+        .post("http://localhost:5000/api/login", user)
+        .then(res => {
+            localStorage.setItem('token', res.data.token)
+            dispatch({type: LOGIN, payload: res.data})
+        })
+        .catch(error => {
+            console.log(error)
+        })
+}

@@ -22,6 +22,9 @@ const preventDefault = (event) => event.preventDefault();
     return (
         <div className="nav">
         <Typography className={classes.root} >
+            <Link className="link" href="/">
+                Home
+            </Link>
             <Link className="link" href="/playerlist" >
                 Players
             </Link>
@@ -36,7 +39,10 @@ const preventDefault = (event) => event.preventDefault();
             </Link>
             <Link className="link" href="/contact">
                 Contact
-            </Link>                
+            </Link>
+            <Link className="admin" href="/login">
+                Admin
+            </Link>               
         </Typography>
         </div>
     )
