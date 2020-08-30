@@ -11,6 +11,7 @@ import Contact from './Components/contact/contact.js'
 import Calendar from './Components/calendar/calendar';
 import addToCalendar from "./Components/calendar/addToCalendar.js"
 import LoginPage from "./Components/login/login.js"
+import AdminNav from "./Components/admin/adminNav.js"
 
 
 const App = props => {  
@@ -19,8 +20,9 @@ const App = props => {
     <div>
       <Nav/>
       <Route exact path="/" component={Home} />
+      <Route path="/adminnav" component={AdminNav}></Route>
       <Route path="/login" component={LoginPage} />      
-      <Route path="/playerform" component={playerForm} />
+      <Route path="/addplayer" component={playerForm} />
       <Route path="/editstats" component={editStats} />
       <Route path='/playerlist' component={playerList} />
       <Route path="/player/:id" component={playerPage} />
