@@ -40,7 +40,7 @@ const preventDefault = (event) => event.preventDefault();
             <Link className="link" href="/contact">
                 Contact
             </Link>
-            <Link className="admin" href="/login">
+            <Link className="admin" href="/adminnav">
                 Admin
             </Link>               
         </Typography>

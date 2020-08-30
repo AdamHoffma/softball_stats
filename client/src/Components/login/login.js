@@ -3,7 +3,7 @@ import { Login } from '../../redux/actions.js'
 import { connect } from "react-redux";
 import "./login.css"
 
-const LoginPage = ({Login, user}) => {
+const LoginPage = ({Login, history}) => {
     const [values, setValues] = useState({
         name: ""
     })
@@ -15,7 +15,8 @@ const LoginPage = ({Login, user}) => {
 
     const Submit = e => {
         e.preventDefault()
-        Login(values)
+        const redirect = () => history.push("/adminnav")
+        Login(values, redirect)
     }    
     
     return (
@@ -27,7 +28,7 @@ const LoginPage = ({Login, user}) => {
                             <input onChange={handleChange} name="name" value={values.name} type="text" id="userName" class="form-control input-sm chat-input" placeholder="username" />                            
                             <div class="wrapper">
                                 <span class="group-btn">     
-                                    <a href="" onClick={Submit} class="btn btn-primary btn-md">login <i class="fa fa-sign-in"></i></a>
+                                    <a href="/adminnav" onClick={Submit} class="btn btn-primary btn-md">login <i class="fa fa-sign-in"></i></a>
                                 </span>
                             </div>
                     </div>                

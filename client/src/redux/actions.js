@@ -107,11 +107,12 @@ export const addEvent = newEvent => dispatch => {
 
 export const LOGIN = 'LOGIN'
 
-export const Login = user => dispatch => {
+export const Login = (user, redirect) => dispatch => {
     axios
         .post("http://localhost:5000/api/login", user)
         .then(res => {
             localStorage.setItem('token', res.data.token)
+            redirect()
             dispatch({type: LOGIN, payload: res.data})
         })
         .catch(error => {
