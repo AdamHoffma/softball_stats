@@ -7,7 +7,7 @@ export const GET_PLAYERS_FAIL = "GET_PLAYERS_FAIL"
 export const getPlayers = () => dispatch => {
     dispatch({type: GET_PLAYERS})
     axios
-    .get("http://localhost:5000/api/stats")
+    .get("https://softballpage.herokuapp.com/api/stats")
     .then(res => {
         dispatch({type: GET_PLAYERS_SUCCESS, payload: res.data})
     })
@@ -23,7 +23,7 @@ export const GET_PLAYER_ID_FAIL = "GET_PLAYER_ID_FAIL"
 export const getPlayerById = player_id => dispatch => {
     dispatch({type: GET_PLAYER_ID})
     axios
-    .get(`http://localhost:5000/api/stats/${player_id}`)
+    .get(`https://softballpage.herokuapp.com/api/stats/${player_id}`)
     .then(res => {
         dispatch({type: GET_PLAYER_ID_SUCCESS, payload: res.data})
     })
@@ -39,7 +39,7 @@ export const POST_PLAYERS_FAILURE = "POST_PLAYERS_FAILURE"
 export const postPlayers = player => dispatch => {
     dispatch({ type: POST_PLAYERS_START})    
     axios
-    .post("http://localhost:5000/api/stats", player)
+    .post("https://softballpage.herokuapp.com/api/stats", player)
     .then(res => {
         dispatch({type: POST_PLAYERS_SUCCESS, payload: res.data})  
         window.location.reload()      
@@ -61,7 +61,7 @@ export const deletePlayers = player_id => dispatch => {
     var confirmation2 = window.confirm("This is permanent")}
     if (confirmation2 === true) {
     axios
-        .delete(`http://localhost:5000/api/stats/${player_id}`)
+        .delete(`https://softballpage.herokuapp.com/api/stats/${player_id}`)
         .then(res => {
             window.location.reload()
         })
@@ -75,7 +75,7 @@ export const EDIT_PLAYER = "EDIT_PLAYER"
 export const editPlayer = (player_id, values) => dispatch => {
     dispatch({type: EDIT_PLAYER})
     axios
-        .put(`http://localhost:5000/api/stats/${player_id}`, values)
+        .put(`https://softballpage.herokuapp.com/api/stats/${player_id}`, values)
         .then(res => {
             console.log('res', res)            
         })
@@ -88,7 +88,7 @@ export const GET_EVENT= "GET_EVENT"
 
 export const getEvent = () => dispatch => {
     axios
-        .get("http://localhost:5000/api/schedule")
+        .get("https://softballpage.herokuapp.com/api/schedule")
         .then(res => {
             dispatch({type: GET_EVENT, payload: res.data})
         })
@@ -98,7 +98,7 @@ export const ADD_EVENT = "ADD_EVENT"
 
 export const addEvent = newEvent => dispatch => {
     axios
-        .post("http://localhost:5000/api/schedule", newEvent)
+        .post("https://softballpage.herokuapp.com/api/schedule", newEvent)
         .then(res => {
             dispatch({type: ADD_EVENT, payload: res.data})
             window.alert("Event added")
@@ -109,7 +109,7 @@ export const LOGIN = 'LOGIN'
 
 export const Login = (user, redirect) => dispatch => {
     axios
-        .post("http://localhost:5000/api/login", user)
+        .post("https://softballpage.herokuapp.com/api/login", user)
         .then(res => {
             localStorage.setItem('token', res.data.token)
             redirect()
