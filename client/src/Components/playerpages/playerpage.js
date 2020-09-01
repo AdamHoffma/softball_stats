@@ -24,6 +24,7 @@ const PlayerPage = (props, {getPlayerById, player}) => {
     return (
         <div className="playerpagebody">                     
             <div className="playerpageinnerbody">
+                <h1 className="header">Hover over or click card to flip over!</h1>
                 <div className="playercard">
                     <section className="front">
                         <img alt="player" className="playerphoto" src={getPic(players.Player)}/>
