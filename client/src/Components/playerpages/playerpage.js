@@ -24,16 +24,13 @@ const PlayerPage = (props, {getPlayerById, player}) => {
     return (
         <div className="playerpagebody">                     
             <div className="playerpageinnerbody">
-                <div className="card">
+                <div className="playercard">
                     <section className="front">
                         <img alt="player" className="playerphoto" src={getPic(players.Player)}/>
                         <div className="namebody">
                             <h1 className="playername">{players.Player}</h1>
                         </div>                        
-                        <div className="biobody">
-                            <h4>
-                                About: {players.Player}
-                            </h4>
+                        <div className="biobody">                            
                             <p className="bio">{players.bio}</p>
                         </div>
                     </section>
@@ -42,10 +39,10 @@ const PlayerPage = (props, {getPlayerById, player}) => {
                             <table className="statstable">
                                 <tbody>
                                 <tr className="rowhead">
-                                    <th className="tablehead">ABS</th>
-                                    <th className="tablehead">PAS</th>
-                                    <th className="tablehead">Walks</th>
-                                    <th className="tablehead">KS</th>                                                                        
+                                    <th className="tablehead">AB</th>
+                                    <th className="tablehead">PA</th>
+                                    <th className="tablehead">BB</th>
+                                    <th className="tablehead">K</th>                                                                        
                                 </tr>
                                 </tbody>
                                 <tbody>
@@ -60,11 +57,11 @@ const PlayerPage = (props, {getPlayerById, player}) => {
                             <table className="statstable">
                                 <tbody>
                                 <tr className="rowhead">
-                                    <th className="tablehead">Hits</th>
-                                    <th className="tablehead">Doubles</th>
-                                    <th className="tablehead">Triples</th>
-                                    <th className="tablehead">HRS</th>
-                                    <th className="tablehead">RBIS</th>                                                                      
+                                    <th className="tablehead">H</th>
+                                    <th className="tablehead">2B</th>
+                                    <th className="tablehead">3B</th>
+                                    <th className="tablehead">HR</th>
+                                    <th className="tablehead">RBI</th>                                                                      
                                 </tr>
                                 </tbody>
                                 <tbody>
@@ -80,8 +77,8 @@ const PlayerPage = (props, {getPlayerById, player}) => {
                             <table className="statstable">
                                 <tbody>
                                 <tr className="rowhead">                                    
-                                    <th className="tablehead">Runs</th>
-                                    <th className="tablehead">SBS</th>
+                                    <th className="tablehead">R</th>
+                                    <th className="tablehead">SB</th>
                                     <th className="tablehead">AVG</th>
                                     <th className="tablehead">OBP</th>
                                     <th className="tablehead">SLG</th> 
