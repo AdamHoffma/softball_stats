@@ -19,8 +19,10 @@ const EditStats = ({getPlayers, editPlayer, stats}) => {
         setStat({...stat, [event.target.name]: 
             event.target.type === "number" ? parseInt(event.target.value) 
             : event.target.value })
-    }    
-    console.log("stat", stats)
+    }   
+    console.log('updated', stats) 
+    console.log("stat", stat)
+    console.log("player.id", player.id)
 
     const editButton = () => {
         editPlayer(player.id, stat)
@@ -47,7 +49,7 @@ const EditStats = ({getPlayers, editPlayer, stats}) => {
                         onChange={changeHandler}
                     />
                     <input
-                        type="text"
+                        type="number"
                         placeholder='ID'
                         name="ID"
                         value={player.id}
