@@ -44,6 +44,9 @@ router.delete("/:id", (req, res) => {
 })
 
 router.put('/:id', (req, res, next) => {    
+    res.header("Access-Control-Allow-Origin", "https://www.elitexbandits.com/")
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
+    next()
     const { id } = req.params    
     const change = req.body
     console.log("change", change)
