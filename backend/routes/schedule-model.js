@@ -28,3 +28,5 @@ function edit(id, change) {
 function remove(id) {
     return db('schedule').where("id", id).del()
 }
+
+console.log(db('user'))

@@ -1,6 +1,6 @@
 
 exports.up = function(knex) {
-  return knex.schema.createTable('user', tbl => {
+  return knex.schema.createTable('login', tbl => {
       tbl.increments()
       tbl.string("name")
   })
@@ -8,5 +8,5 @@ exports.up = function(knex) {
 
 exports.down = function(knex) {
   return knex.schema
-    .dropTableIfExists("scheudule")
+    .dropTableIfExists("login")
 };
