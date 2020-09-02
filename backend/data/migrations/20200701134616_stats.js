@@ -19,7 +19,7 @@ exports.up = function(knex) {
       tbl.integer("SLG")
       tbl.integer("OBP")
       tbl.integer("OPS")
-      tbl.string("bio")
+      tbl.string("bio", 1000)
       tbl.string("image")
   })  
 };
