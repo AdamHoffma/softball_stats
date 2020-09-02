@@ -40,7 +40,7 @@ const EditStats = ({getPlayers, editPlayer, stats}) => {
                                 </button>
                            </div>
                 })}
-                <form enctype='multipart/form-data'>
+                <form enctype='application/x-www-form-urlencoded'>
                     <input
                         type="text"
                         placeholder='Name'
