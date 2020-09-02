@@ -1,4 +1,5 @@
 const express = require('express')
+const cors = require('cors')
 const Stats = require('./stats-model.js')
 const router = express.Router()
 const knex = require('knex')
@@ -43,7 +44,7 @@ router.delete("/:id", (req, res) => {
     })
 })
 
-router.put('/:id', (req, res, next) => {    
+router.put('/:id', cors(), (req, res, next) => {    
     res.header("Access-Control-Allow-Origin", "https://www.elitexbandits.com/")
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
     next()
