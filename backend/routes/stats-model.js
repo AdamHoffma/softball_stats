@@ -27,7 +27,7 @@ function findById(id){
 }
 
 function edit(id, change){
-    return db('stats').where("id", id).update(change)
+    return db('stats').where({ id }).update(change, "*")
 }
 
 function remove(id){

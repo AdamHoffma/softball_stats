@@ -46,6 +46,7 @@ router.delete("/:id", (req, res) => {
 router.put('/:id', (req, res) => {
     const { id } = req.params    
     const change = req.body
+    console.log("body", body)
     Stats.findById(id)
     .then(stat => {
         if(stat) {
