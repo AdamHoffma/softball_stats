@@ -43,7 +43,7 @@ router.delete("/:id", (req, res) => {
     })
 })
 
-router.put('/:id', (req, res) => {
+router.put('/:id', (req, res, next) => {    
     const { id } = req.params    
     const change = req.body
     console.log("change", change)
