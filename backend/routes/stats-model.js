@@ -66,8 +66,7 @@ async function updateRecord(player_id, new_data){
         RBI: updatedRbi,
         R: updatedR,
         SB: updatedSb,
-        bio: updatedbio,
-        image: updatedImage      
+        bio: updatedbio      
     })
     return user_stats    
 }
