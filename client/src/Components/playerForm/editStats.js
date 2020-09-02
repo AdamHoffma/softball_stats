@@ -20,7 +20,7 @@ const EditStats = ({getPlayers, editPlayer, stats}) => {
             event.target.type === "number" ? parseInt(event.target.value) 
             : event.target.value })
     }    
-    console.log("stat", stat)
+    console.log("stat", stats)
 
     const editButton = () => {
         editPlayer(player.id, stat)
