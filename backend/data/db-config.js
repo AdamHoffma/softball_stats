@@ -1,8 +1,6 @@
 const knex = require('knex')
 
-const knexFile = require('../knexfile.js')
 const knexfile = require('../knexfile.js')
-
 
 const dbEnv = process.env.DB_ENV || "development"
 

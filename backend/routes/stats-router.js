@@ -70,6 +70,7 @@ router.post('/', (req, res) => {
             res.status(200).json(update)
         })
         .catch(error => {
+            console.log("error", error)
             res.status(500).json({message: "Failed to Post"})
         })
 })
