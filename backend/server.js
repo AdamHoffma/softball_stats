@@ -56,7 +56,7 @@ const contactRouter = router.post('/send', (req, res, next) => {
 })
 
 
-
+server.options("*", cors())
 server.use(helmet())
 server.use(express.json())
 server.use(cors())
