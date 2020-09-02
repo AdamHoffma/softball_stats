@@ -52,7 +52,7 @@ router.put('/:id', (req, res) => {
         if(stat) {
             return Stats.updateRecord(id, change)
             .then(updatedStats => {
-                res.json(updatedStats)
+                res.status(200).json(updatedStats)
             })
         } else {
             res.status(404).json({message: "Could not find player with that id"})
