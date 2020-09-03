@@ -46,6 +46,7 @@ router.delete("/:id", restricted, (req, res) => {
 })
 
 router.put('/:id', restricted, (req, res) => {        
+    console.log("token", req.headers.authorization)
     const { id } = req.params    
     const change = req.body
     console.log("change", change)
