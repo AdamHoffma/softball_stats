@@ -55,6 +55,7 @@ const contactRouter = router.post('/send', (req, res, next) => {
     })
 })
 
+server.use(helmet())
 
 server.use(cors({
     origin: true,
@@ -62,7 +63,7 @@ server.use(cors({
     credentials: true,
     maxAge: 3600
 }))
-server.use(helmet())
+
 server.use(express.json())
 server.use('/api/stats', statsRouter)
 server.use("/", contactRouter)
