@@ -1,6 +1,7 @@
 const express = require('express')
 const Schedule = require('./schedule-model.js')
 const router = express.Router()
+const restricted = require("../auth/auth-middleware.js")
 
 
 router.get('/', (req, res) => {
@@ -13,7 +14,7 @@ router.get('/', (req, res) => {
         })
 })
 
-router.post('/', (req, res) => {
+router.post('/', restricted, (req, res) => {
     const eventData = req.body
     Schedule.add(eventData)
         .then(added => {

@@ -7,6 +7,7 @@ const knexfile = require('../knexfile.js')
 const knexConfig = knexfile.development
 const db = knex(knexConfig)
 const datab = require('../data/db-config.js')
+const restricted = require("../auth/auth-middleware.js")
 
 router.get('/', (req, res) => {
     Stats.find()
@@ -29,7 +30,7 @@ router.get('/:id', (req, res) => {
     })
 })
 
-router.delete("/:id", (req, res) => {
+router.delete("/:id", restricted, (req, res) => {
     const {id} = req.params
     Stats.remove(id)
     .then(removed => {
@@ -44,7 +45,7 @@ router.delete("/:id", (req, res) => {
     })
 })
 
-router.put('/:id', (req, res) => {        
+router.put('/:id', restricted, (req, res) => {        
     const { id } = req.params    
     const change = req.body
     console.log("change", change)
@@ -65,7 +66,7 @@ router.put('/:id', (req, res) => {
     })
 })
 
-router.post('/', (req, res) => {
+router.post('/', restricted, (req, res) => {
     const playerData = req.body
     Stats.add(playerData)
         .then(update => {
