@@ -42,6 +42,7 @@ export const postPlayers = player => dispatch => {
     axiosWithAuth()    
     .post("/api/stats", player)
     .then(res => {
+        console.log(res.status.json)
         dispatch({type: POST_PLAYERS_SUCCESS, payload: res.data})          
         window.location.reload()      
     })
