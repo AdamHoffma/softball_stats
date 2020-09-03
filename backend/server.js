@@ -56,10 +56,14 @@ const contactRouter = router.post('/send', (req, res, next) => {
 })
 
 
-server.options("*", cors())
+server.use(cors({
+    origin: true,
+    methods: ['PUT'],
+    credentials: true,
+    maxAge: 3600
+}))
 server.use(helmet())
 server.use(express.json())
-server.use(cors())
 server.use('/api/stats', statsRouter)
 server.use("/", contactRouter)
 server.use("/api/schedule", scheduleRouter)
