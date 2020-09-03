@@ -66,9 +66,9 @@ router.put('/:id', restricted, (req, res) => {
     })
 })
 
-router.post('/',  (req, res) => {
-    console.log("token", req.headers.authorization)
-    console.log('REQ', req)
+router.post('/', restricted, (req, res) => {
+    console.log("token", req.token)
+    console.log('REQ', req.name)
     const playerData = req.body
     Stats.add(playerData)
         .then(update => {
