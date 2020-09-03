@@ -66,7 +66,7 @@ server.use(helmet())
 server.use(express.json())
 server.use('/api/stats', statsRouter)
 server.use("/", contactRouter)
-server.use("/api/schedule", scheduleRouter)
+server.use("/api/schedule", cors(), scheduleRouter)
 server.use("/api/login", loginRouter)
 
 
