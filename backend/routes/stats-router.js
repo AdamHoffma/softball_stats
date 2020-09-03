@@ -66,7 +66,7 @@ router.put('/:id', restricted, (req, res) => {
     })
 })
 
-router.post('/', restricted, (req, res) => {
+router.post('/',  (req, res) => {
     console.log("token", req.token)
     console.log('REQ', req.name)
     const playerData = req.body
