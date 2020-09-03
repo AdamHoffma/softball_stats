@@ -45,8 +45,7 @@ router.delete("/:id", restricted, (req, res) => {
     })
 })
 
-router.put('/:id', restricted, (req, res) => {        
-    console.log("token", req.headers.authorization)
+router.put('/:id', restricted, (req, res) => {    
     const { id } = req.params    
     const change = req.body
     console.log("change", change)
@@ -68,6 +67,7 @@ router.put('/:id', restricted, (req, res) => {
 })
 
 router.post('/', restricted, (req, res) => {
+    console.log("token", req.headers.authorization)
     const playerData = req.body
     Stats.add(playerData)
         .then(update => {
