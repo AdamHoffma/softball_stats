@@ -1,4 +1,5 @@
 import axios from "axios"
+import { axiosWithAuth } from "../utils/axiosWithAuth.js"
 
 export const GET_PLAYERS = "GET_PLAYERS"
 export const GET_PLAYERS_SUCCESS = "GET_PLAYERS_SUCCESS"
@@ -38,10 +39,10 @@ export const POST_PLAYERS_FAILURE = "POST_PLAYERS_FAILURE"
 
 export const postPlayers = player => dispatch => {
     dispatch({ type: POST_PLAYERS_START})    
-    axios
-    .post("https://softballpage.herokuapp.com/api/stats", player)
+    axiosWithAuth()    
+    .post("/api/stats", player)
     .then(res => {
-        dispatch({type: POST_PLAYERS_SUCCESS, payload: res.data})  
+        dispatch({type: POST_PLAYERS_SUCCESS, payload: res.data})          
         window.location.reload()      
     })
     .catch(error => {
@@ -60,7 +61,7 @@ export const deletePlayers = player_id => dispatch => {
     if (confirmation === true) {
     var confirmation2 = window.confirm("This is permanent")}
     if (confirmation2 === true) {
-    axios
+    axiosWithAuth()
         .delete(`https://softballpage.herokuapp.com/api/stats/${player_id}`)
         .then(res => {
             window.location.reload()
@@ -74,7 +75,7 @@ export const EDIT_PLAYER = "EDIT_PLAYER"
 
 export const editPlayer = (player_id, values) => dispatch => {
     dispatch({type: EDIT_PLAYER})
-    axios
+    axiosWithAuth()
         .put(`https://softballpage.herokuapp.com/api/stats/${player_id}`, values)
         .then(res => {
             console.log('res', res)            
@@ -97,7 +98,7 @@ export const getEvent = () => dispatch => {
 export const ADD_EVENT = "ADD_EVENT"
 
 export const addEvent = newEvent => dispatch => {
-    axios
+    axiosWithAuth()
         .post("https://softballpage.herokuapp.com/api/schedule", newEvent)
         .then(res => {
             dispatch({type: ADD_EVENT, payload: res.data})
