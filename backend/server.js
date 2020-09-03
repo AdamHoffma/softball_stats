@@ -59,7 +59,7 @@ server.use(helmet())
 
 server.use(cors({
     origin: true,
-    methods: ['PUT'],
+    methods: ['PUT', 'DELETE'],
     credentials: true,
     maxAge: 3600
 }))
