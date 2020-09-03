@@ -4,6 +4,7 @@ import HALIE from "../playerpic/halie.PNG"
 import GRACE from "../playerpic/grace.jpeg"
 import ZAIRA from "../playerpic/zaira.jpg"
 import VICTORIA from "../playerpic/victoria.jpg"
+import ABBY from "../playerpic/abby.PNG"
 
 const getPic = player => {
     switch (player) {
@@ -19,6 +20,8 @@ const getPic = player => {
             return ZAIRA;
         case "Victoria Safranek":
             return VICTORIA;
+        case "Abby Park":
+            return ABBY;
     }
         
 }
