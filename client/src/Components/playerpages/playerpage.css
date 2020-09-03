@@ -20,7 +20,7 @@
 
 .playercard {
     width: 30vw;
-    height: 80vh;
+    
     background-color: silver;
     display: flex;
     flex-direction: column;    
