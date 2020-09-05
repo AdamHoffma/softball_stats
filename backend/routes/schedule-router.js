@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
         })
 })
 
-router.post('/', restricted, (req, res) => {
+router.post('/', (req, res) => {
     const eventData = req.body
     Schedule.add(eventData)
         .then(added => {
