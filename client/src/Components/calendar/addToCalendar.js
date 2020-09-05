@@ -14,7 +14,7 @@ const AddToCalendar = props => {
 
     const postEvent = () => {
         props.addEvent(newEvent)
-        window.reload()
+        // window.reload()
     }
 
     return (

@@ -9,6 +9,7 @@ export const axiosWithAuth = () => {
 
     if (currentUrl === "http://localhost:3000/") {
         baseURL = "http://localhost:5000"
+        console.log("baseurl", baseURL)
     } else if (currentUrl === "https://elitexbandits.com/") {
         baseURL = "https://softballpage.herokuapp.com/"
     }

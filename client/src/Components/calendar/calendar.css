@@ -83,7 +83,7 @@ main {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  width: 100%;
+  width: 94%;
 }
 
 .row-middle {
@@ -117,9 +117,10 @@ main {
 .calendar {
   display: block;
   position: relative;
-  width: 100%;
+  width: 94%;
   background: var(--neutral-color);
-  border: 1px solid var(--border-color); 
+  /* border: 1px solid var(--border-color);  */
+  margin: auto
 }
 
 .calendar .header {
@@ -151,11 +152,11 @@ main {
 
 .calendar .days {
   text-transform: uppercase;
-  font-weight: 400;
-  color: var(--text-color-light);
-  font-size: 70%;
+  font-weight: 1000;
+  color: black;
+  font-size: 80%;
   padding: .75em 0;
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);  
 }
 
 .calendar .body .cell {
@@ -166,6 +167,10 @@ main {
   cursor: pointer;
   background: var(--neutral-color);
   transition: 0.25s ease-out;
+}
+
+.calendar .body .cell:first-child {
+  border-left: 1px solid var(--border-color);
 }
 
 .calendar .body .cell:hover {
@@ -183,13 +188,13 @@ main {
   border-bottom: 1px solid var(--border-color);
 }
 
-.calendar .body .row:last-child {
+/* .calendar .body .row:last-child {
   border-bottom: none;
 }
 
 .calendar .body .cell:last-child {
   border-right: none;
-}
+} */ 
 
 .calendar .body .cell .number {
   position: absolute;
