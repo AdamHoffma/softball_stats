@@ -32,16 +32,20 @@ const EditStats = ({getPlayers, editPlayer, stats}) => {
         <div className="editbody">
             <div className="editinnerbody">
                 <h1 className="editheading">Edit Player Stats</h1>
+                <div className="buttoncontainer">
                 {stats.map(button => {
-                    return <div>
+                    return  <div>
                                 <button 
+                                    className="setidbutton"
                                     onClick={() => setPlayerId(button)}>
                                     {button.Player}
                                 </button>
-                           </div>
+                            </div>
                 })}
+                </div>
                 <form className='editstatsform' enctype='application/x-www-form-urlencoded'>
                     <input
+                        className="statinput"
                         type="text"
                         placeholder='Name'
                         name="Player"
@@ -49,6 +53,7 @@ const EditStats = ({getPlayers, editPlayer, stats}) => {
                         onChange={changeHandler}
                     />
                     <input
+                        className="statinput"
                         type="number"
                         placeholder='ID'
                         name="ID"
@@ -56,6 +61,7 @@ const EditStats = ({getPlayers, editPlayer, stats}) => {
                         onChange={changeHandler}
                     />
                     <input
+                        className="statinput"
                         type="number"
                         placeholder='AB'
                         name="AB"
@@ -63,6 +69,7 @@ const EditStats = ({getPlayers, editPlayer, stats}) => {
                         onChange={changeHandler}
                     />
                      <input
+                        className="statinput"
                         type="number"
                         placeholder='PA'
                         name="PA"
@@ -70,6 +77,7 @@ const EditStats = ({getPlayers, editPlayer, stats}) => {
                         onChange={changeHandler}
                     />
                     <input
+                        className="statinput"
                         type="number"
                         placeholder='BB'
                         name="BB"
@@ -77,6 +85,7 @@ const EditStats = ({getPlayers, editPlayer, stats}) => {
                         onChange={changeHandler}
                     />
                      <input
+                        className="statinput"
                         type="number"
                         placeholder='K'
                         name="K"
@@ -84,6 +93,7 @@ const EditStats = ({getPlayers, editPlayer, stats}) => {
                         onChange={changeHandler}
                     />
                     <input
+                        className="statinput"
                         type="number"
                         placeholder='KL'
                         name="KL"
@@ -91,6 +101,7 @@ const EditStats = ({getPlayers, editPlayer, stats}) => {
                         onChange={changeHandler}
                     />
                      <input
+                        className="statinput"
                         type="number"
                         placeholder='Hits'
                         name="Hits"
@@ -98,6 +109,7 @@ const EditStats = ({getPlayers, editPlayer, stats}) => {
                         onChange={changeHandler}
                     />
                     <input
+                        className="statinput"
                         type="number"
                         placeholder='Double'
                         name="Double"
@@ -105,6 +117,7 @@ const EditStats = ({getPlayers, editPlayer, stats}) => {
                         onChange={changeHandler}
                     />
                     <input
+                        className="statinput"
                         type="number"
                         placeholder='Triple'
                         name="Triple"
@@ -112,6 +125,7 @@ const EditStats = ({getPlayers, editPlayer, stats}) => {
                         onChange={changeHandler}
                     />
                     <input
+                        className="statinput"
                         type="number"
                         placeholder='HR'
                         name="HR"
@@ -119,6 +133,7 @@ const EditStats = ({getPlayers, editPlayer, stats}) => {
                         onChange={changeHandler}
                     />
                     <input
+                        className="statinput"
                         type="number"
                         placeholder='RBI'
                         name="RBI"
@@ -126,6 +141,7 @@ const EditStats = ({getPlayers, editPlayer, stats}) => {
                         onChange={changeHandler}
                     />
                     <input
+                        className="statinput"
                         type="number"
                         placeholder='R'
                         name="R"
@@ -133,20 +149,24 @@ const EditStats = ({getPlayers, editPlayer, stats}) => {
                         onChange={changeHandler}
                     />
                     <input
+                        className="statinput"
                         type="number"
                         placeholder='SB'
                         name="SB"
                         value={stat.SB}
                         onChange={changeHandler}
                     />
-                    <input
+                    <textarea
+                        className="bioinput"
                         type="text"
+                        cols="80"
+                        rows="8"
                         placeholder='Bio'
                         name="bio"
                         value={stat.bio}
                         onChange={changeHandler}
                     />                     
-                    <button onClick={editButton}>Submit</button>
+                    <button className="submitstatsbutton" onClick={editButton}>Submit New Stats</button>
                 </form>
             </div>
         </div>

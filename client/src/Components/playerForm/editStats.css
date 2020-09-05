@@ -2,3 +2,74 @@
     height: 100vh;
     background-color: black;
 }
+
+.editinnerbody {
+    width: 80vw;
+    background-color: navy;    
+    margin: auto
+}
+
+.editheading {
+    color: white;
+    text-align: center;
+    padding-top: 2rem
+}
+
+.buttoncontainer {    
+    display: flex;
+    flex-direction: row;    
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 80vw
+}
+
+.setidbutton {    
+    margin: 2rem;
+    height: 5.5rem;
+    color: white;
+    background-color: navy;
+    border: none;
+    font-size: 2rem;    
+}
+
+.editstatsform {
+    width: 80vw;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 3rem;
+    justify-content: center;
+}
+
+.statinput {
+    height: 3rem;   
+    width: 15rem;
+    margin: 3rem
+}
+
+.statinput::placeholder {
+    color: black;
+    font-size: 1.5rem
+}
+
+.bioinput {
+    margin: auto
+}
+
+.bioinput::placeholder {
+    color: black;
+    font-size: 1.5rem
+}
+
+.submitstatsbutton {
+    width: 25%;
+    height: 5rem;
+    margin: auto;
+    border: none;
+    background-color: rgba(9, 255, 21, 0.479);
+    cursor: pointer;
+    border-radius: 15%;
+    color: white;
+    font-size: 2rem
+}
+
