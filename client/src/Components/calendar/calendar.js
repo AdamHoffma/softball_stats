@@ -18,6 +18,8 @@ useEffect(() => {
     props.getEvent()
 }, [])
 
+console.log("scheduled", props.scheduled)
+
 const renderHeader = () => {
     const dateFormat = "MMMM yyyy"
     return (
