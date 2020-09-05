@@ -90,7 +90,7 @@ export const GET_EVENT= "GET_EVENT"
 
 export const getEvent = () => dispatch => {
     axiosWithAuth()
-        .get("/api/schedule")
+        .get("https://softballpage.herokuapp.com/api/schedule")
         .then(res => {
             dispatch({type: GET_EVENT, payload: res.data})
         })
