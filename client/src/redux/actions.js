@@ -100,7 +100,7 @@ export const ADD_EVENT = "ADD_EVENT"
 
 export const addEvent = newEvent => dispatch => {
     axiosWithAuth()
-        .post("/api/schedule", newEvent)
+        .post("https://softballpage.herokuapp.com/api/schedule", newEvent)
         .then(res => {
             dispatch({type: ADD_EVENT, payload: res.data})
             window.alert("Event added")
