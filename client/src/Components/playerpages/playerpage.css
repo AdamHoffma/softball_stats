@@ -19,18 +19,19 @@
 }
 
 .playercard {
-    width: 30vw;    
+    width: 38vw;    
     background-color: silver;
     display: flex;
     flex-direction: column;    
     border: 5px solid black;
     transition-duration: 1.5s;
     transform-style: preserve-3d;   
-    text-align: center; 
+    text-align: center;   
+    height: 75vh  
 }
 
 .playerphoto {
-    width: 50%;    
+    width: 44%;    
     margin-top: 2px;
     border: none
 }
@@ -53,18 +54,19 @@
 }
 
 .biobody {
-    display: flex;    
+    display: flex;
+    overflow: hidden    
 }
 
 .bio {
     font-size: 2rem;    
     margin-top: 3rem;
-    color: black
+    color: black;    
 }
 
 .back {
     transform: rotateY(180deg);     
-    color: black 
+    color: black;     
 }
 
 .playercard:hover {
@@ -77,26 +79,34 @@
 }
 
 .front {
-    position: absolute
+    position: absolute;
 }
 
 .statstable {
-    border: 1px solid black;    
+    border-top: 1px solid black;    
     color: navy;  
     table-layout: fixed;
     width: 100%;
-    margin-bottom: 30px;   
-    border-collapse: collapse;     
+    margin-bottom: 30px;           
 }
 
 .tablehead {
     border: 1px solid black;
-    height: 100px;
+    height: 70px;
     font-size: 1.5rem;
 }
 
+.tablehead:last-child {
+    border: none
+}
+
+.tablehead:first-child {
+    border: none
+}
+
 .statsrow {
-    border: 1px solid black;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
     height: 50px
 }
 
@@ -104,4 +114,12 @@
     border: 1px solid black;
     text-align: center;
     font-size: 22px;
+}
+
+.tabledata:last-child {
+    border: none
+}
+
+.tabledata:first-child {
+    border: none
 }
