@@ -14,12 +14,6 @@ useEffect(() => {
     props.getEvent()
 }, [])
 
-useEffect(() => {
-    props.getEvent()
-}, [])
-
-console.log("scheduled", props.scheduled)
-
 const renderHeader = () => {
     const dateFormat = "MMMM yyyy"
     return (
@@ -40,6 +34,7 @@ const renderHeader = () => {
         </div>
     )
 }
+
 const renderDays = () => {
     const dateFormat = "E"
     const days = []
@@ -84,12 +79,9 @@ const renderCells = () => {
                     <span className="number">{formattedDate}</span>
                     <span className="bg">{formattedDate}</span>
                     {props.scheduled.map(e => {
-                        const timeStamp = new Date(e.date)
-                        console.log("timeStamp", timeStamp)
-                        const equalizer = timeStamp.getDate()
-                        console.log('equalizer', equalizer)
-                        const gridDay = cloneDay.getDate()
-                        console.log("griday", gridDay)
+                        const timeStamp = new Date(e.date)                        
+                        const equalizer = timeStamp.getDate()                        
+                        const gridDay = cloneDay.getDate()                       
                         const gridMonth = cloneDay.getMonth()
                         const monthEqualizer = timeStamp.getMonth()
                         if (equalizer === gridDay && gridMonth === monthEqualizer) {
@@ -99,8 +91,8 @@ const renderCells = () => {
                                 <span>Arrival: {e.arrival}</span>
                                 <span>Time: {e.time}</span>                                
                             </div>
-                        }
-                    })}                  
+                        }                        
+                    })}                                     
                 </div>
             )
             day = dateFns.addDays(day, 1)            
@@ -115,8 +107,35 @@ const renderCells = () => {
     return <div className="body">{rows}</div>
 }
 
-const onDateClick = cloneDay => {    
-    console.log("CLICK", cloneDay)
+const renderExpanded = cloneDay => {
+    
+}
+
+const onDateClick = cloneDay => {        
+    let expanded = []
+    {props.scheduled.map(day => {
+        const conversion = new Date(day.date)
+        const eventDay = conversion.getDate()
+        const eventMonth = conversion.getMonth()
+        const calendarDay = cloneDay.getDate()
+        const calendarMonth = cloneDay.getMonth()
+
+        if (eventDay === calendarDay && eventMonth === calendarMonth) {
+            // expanded.push(
+            // <div className={`test ${cloneDay}`} key={cloneDay}>
+            //     <h1>{day.date}</h1>
+            //     <h1>TIME: {day.time}</h1>
+            // </div>
+            // )
+            // console.log("expanded before clear", expanded)
+            // return <div key={cloneDay}>{expanded}</div>
+            // console.log("CLICK", day)
+            return <div>
+                        <h1>LOCATION: {day.location}</h1>                
+                   </div>
+        }
+    })}
+    expanded = []
 }
 
 const nextMonth = () => {
@@ -135,7 +154,7 @@ const prevMonth = () => {
         <div className="calendar">
             {renderHeader()}
             {renderDays()}
-            {renderCells()}
+            {renderCells()}                        
         </div>
     )
 }
