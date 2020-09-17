@@ -30,7 +30,7 @@ router.get('/:id', (req, res) => {
     })
 })
 
-router.delete("/:id", restricted, (req, res) => {
+router.delete("/:id", (req, res) => {
     const {id} = req.params
     Stats.remove(id)
     .then(removed => {
@@ -45,7 +45,7 @@ router.delete("/:id", restricted, (req, res) => {
     })
 })
 
-router.put('/:id', restricted, (req, res) => {    
+router.put('/:id', (req, res) => {    
     const { id } = req.params    
     const change = req.body
     console.log("change", change)
