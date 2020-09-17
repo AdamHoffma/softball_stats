@@ -30,8 +30,8 @@ const CalendarView = (props, {getEventById, scheduled}) => {
         <div className="expandedouterbody">
             <div className="expandedinnerbody">
                 <div className="eventdetailscontainer">
-                    <h1>Day: {dayOfWeek}</h1>
-                    <h1>Date: {month} / {day} / {year}</h1>
+                    <h1 className="date">Day: {dayOfWeek}</h1>
+                    <h1 className="date">Date: {month} / {day} / {year}</h1>
                     <div className="textcontainer">
                         <p className="eventheading">Event Type: <span className="eventdetails">{props.scheduled.name}</span></p>                            
                         <p className="eventheading">Location: <span className="eventdetails">{props.scheduled.location}</span></p>                            
