@@ -12,6 +12,7 @@ export const axiosWithAuth = () => {
         console.log("baseurl", baseURL)
     } else if (currentUrl === "https://elitexbandits.com/") {
         baseURL = "https://softballpage.herokuapp.com/"
+        console.log("BASEURL", baseURL)
     }
 
     return axios.create({
