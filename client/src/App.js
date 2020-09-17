@@ -13,6 +13,7 @@ import addToCalendar from "./Components/calendar/addToCalendar.js"
 import LoginPage from "./Components/login/login.js"
 import AdminNav from "./Components/admin/adminNav.js"
 import ProtectedRoute from "./utils/protectedRoute.js"
+import CalendarView from "./Components/calendar/calendarView.js"
 
 
 const App = props => {  
@@ -30,6 +31,7 @@ const App = props => {
       <Route path="/player/:id" component={playerPage} />
       <Route path="/contact" component={Contact} />
       <Route path="/calendar" component={Calendar} />
+      <Route path="/calendarview/:id" component={CalendarView} />
       
     </div>
   );

@@ -3,16 +3,19 @@ import "./calendar.css"
 import  * as dateFns from "date-fns"
 import {getEvent} from "../../redux/actions.js"
 import { connect } from 'react-redux'
+import {Link} from "react-router-dom"
 
-const Calendar = props => {
+const Calendar = ({getEvent, scheduled}) => {
 const [state, setState] = useState({
     currentMonth: new Date(),
     selectedDate: new Date()
 })
 
 useEffect(() => {
-    props.getEvent()
-}, [])
+    getEvent()
+}, [getEvent])
+
+console.log(scheduled)
 
 const renderHeader = () => {
     const dateFormat = "MMMM yyyy"
@@ -78,19 +81,19 @@ const renderCells = () => {
                 >
                     <span className="number">{formattedDate}</span>
                     <span className="bg">{formattedDate}</span>
-                    {props.scheduled.map(e => {
+                    {scheduled.map(e => {
                         const timeStamp = new Date(e.date)                        
                         const equalizer = timeStamp.getDate()                        
                         const gridDay = cloneDay.getDate()                       
                         const gridMonth = cloneDay.getMonth()
                         const monthEqualizer = timeStamp.getMonth()
                         if (equalizer === gridDay && gridMonth === monthEqualizer) {
-                            return <div className='schedule'>
+                            return <Link to={`/calendarview/${e.id}`} className='schedule'>
                                 <span>{e.name}</span>
                                 <span>Location: {e.location}</span>
                                 <span>Arrival: {e.arrival}</span>
                                 <span>Time: {e.time}</span>                                
-                            </div>
+                            </Link>
                         }                        
                     })}                                     
                 </div>
@@ -113,7 +116,7 @@ const renderExpanded = cloneDay => {
 
 const onDateClick = cloneDay => {        
     let expanded = []
-    {props.scheduled.map(day => {
+    {scheduled.map(day => {
         const conversion = new Date(day.date)
         const eventDay = conversion.getDate()
         const eventMonth = conversion.getMonth()

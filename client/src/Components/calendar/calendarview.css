@@ -1,0 +1,35 @@
+.expandedouterbody {
+    background-color: black;
+    height: 95vh;
+    display: flex;
+    justify-content: center;
+}
+
+.expandedinnerbody {
+    background-color: navy;
+    width: 80vw;
+    display: flex;
+    justify-content: center;
+}
+
+.eventdetailscontainer {
+    background-color: white;
+    width: 40vw;     
+    position: absolute;   
+    margin-top: 4.5rem    
+}
+
+.textcontainer {
+    margin-top: 2.5rem;
+}
+
+.eventheading {
+    color: black;
+    font-size: 2.4rem;
+    text-align: left;
+}
+
+.eventdetails {
+    color: red;
+    font-size: 2.4rem
+}

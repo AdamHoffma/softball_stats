@@ -33,6 +33,19 @@ export const getPlayerById = player_id => dispatch => {
     })
 }
 
+export const GET_EVENT_ID = "GET_EVENT_ID"
+export const GET_EVENT_ID_FAIL = "GET_EVENT_ID_FAIL"
+
+export const getEventById = event_id => dispatch => {
+    axios.get(`https://softballpage.herokuapp.com/api/schedule/${event_id}`)
+    .then(res => {
+        dispatch({type: GET_EVENT_ID, payload: res.data})
+    })
+    .catch(error => {
+        dispatch({type: GET_EVENT_ID_FAIL, payload: error})
+    })
+}
+
 export const POST_PLAYERS_START = "POST_PLAYERS_START"
 export const POST_PLAYERS_SUCCESS = "POST_PLAYERS_SUCCESS"
 export const POST_PLAYERS_FAILURE = "POST_PLAYERS_FAILURE"

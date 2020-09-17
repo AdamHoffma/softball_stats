@@ -11,6 +11,8 @@ import {
     GET_PLAYER_ID_SUCCESS,
     ADD_EVENT,
     GET_EVENT,
+    GET_EVENT_ID,
+    GET_PLAYER_ID_FAIL,
     LOGIN
 } from "./actions.js"
 
@@ -85,6 +87,16 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 events: action.payload
+            }
+        case GET_EVENT_ID:
+            return {
+                ...state,
+                events: action.payload
+            }
+        case GET_PLAYERS_FAIL:
+            return {
+                ...state,
+                error: "failed to get event"
             }
         case LOGIN: 
             return {
