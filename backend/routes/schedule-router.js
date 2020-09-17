@@ -14,6 +14,17 @@ router.get('/', (req, res) => {
         })
 })
 
+router.get('/', (req, res) => {
+    const id = req.params.id
+    Schedule.findById(id)
+        .then(event => {
+            res.status(200).json(event)
+        })
+        .catch(error => {
+            res.status(500).json({message: "No event by that ID"})
+        })
+})
+
 router.post('/', (req, res) => {
     const eventData = req.body
     Schedule.add(eventData)
