@@ -66,7 +66,7 @@ router.put('/:id', restricted, (req, res) => {
     })
 })
 
-router.post('/', restricted, (req, res) => {    
+router.post('/', (req, res) => {    
     const playerData = req.body
     Stats.add(playerData)
         .then(update => {
