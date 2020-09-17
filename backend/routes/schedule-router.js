@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
 })
 
 router.get('/:id', (req, res) => {
-    const id = req.params.id
+    const {id} = req.params
     Schedule.findById(id)
         .then(event => {
             res.status(200).json(event)
