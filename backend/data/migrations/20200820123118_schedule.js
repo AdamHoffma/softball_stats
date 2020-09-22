@@ -7,6 +7,9 @@ exports.up = function(knex) {
       tbl.string("time")
       tbl.string("arrival")
       tbl.string("date")
+      tbl.string("opponent")
+      tbl.string("notes")
+      tbl.string("location_url")
   })
 };
 

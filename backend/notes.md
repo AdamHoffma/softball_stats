@@ -1,0 +1,1 @@
+heroku run knex migrate:rollback
